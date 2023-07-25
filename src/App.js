@@ -1,4 +1,5 @@
 import { Container } from "./components/Container";
+import { Scores } from "./components/Scores";
 import {
   Image,
   Content,
@@ -24,6 +25,8 @@ function App() {
             <Tag>Adventure</Tag>
             <Tag>Drama</Tag>
           </Tags>
+          <Scores data={{ score: 7.6, votes: 643 }} />
+
           <Description>
             A young Chinese maiden disguises herself as a male warrior in order
             to save her father. Disguises herself as a male warrior in order to

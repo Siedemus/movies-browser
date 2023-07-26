@@ -14,32 +14,34 @@ import {
   Year,
 } from "./styled";
 
-export const Tile = () => (
+export const Tile = ({
+  title,
+  year,
+  infoProduction,
+  infoDate,
+  tag,
+  filmDescription,
+}) => (
   <TileWrap>
     <Image src={poster} alt="" />
     <Content>
-      <Title>Mulan</Title>
-      <Year>2020</Year>
+      <Title>{title}</Title>
+      <Year>{year}</Year>
       <Box>
         <AdditionInfo>Production:</AdditionInfo>
-        <Info> China USA</Info>
+        <Info> {infoProduction}</Info>
       </Box>
       <Box>
         <AdditionInfo>Release date:</AdditionInfo>
-        <Info> 24.10.2020</Info>
+        <Info> {infoDate}</Info>
       </Box>
       <Tags>
-        <Tag>Action</Tag>
-        <Tag>Drama</Tag>
-        <Tag>Adventure</Tag>
+        <Tag>{tag}</Tag>
+        <Tag>{tag}</Tag>
+        <Tag>{tag}</Tag>
       </Tags>
       <Scores data={{ score: 7.6, votes: 643 }} />
     </Content>
-    <Description>
-      A young Chinese maiden disguises herself as a male warrior in order to
-      save her father. Disguises herself as a male warrior in order to save her
-      father. A young Chinese maiden disguises herself as a male warrior in
-      order to save her father.
-    </Description>
+    <Description>{filmDescription}</Description>
   </TileWrap>
 );

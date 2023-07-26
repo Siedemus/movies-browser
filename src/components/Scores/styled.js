@@ -14,6 +14,7 @@ export const Score = styled.span`
   @media (max-width: 768px) {
     font-weight: 600;
     font-size: 13px;
+    margin-left: 4px;
   }
 `;
 
@@ -36,5 +37,6 @@ export const AllVotes = styled.span`
     font-weight: 400;
     font-size: 13px;
     color: ${({ theme }) => theme.colors.waterloo};
+    margin-left: 7px;
   }
 `;

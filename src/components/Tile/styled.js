@@ -6,7 +6,7 @@ export const TileWrap = styled.article`
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
   display: grid;
-  grid-template-columns: 312px 1fr;
+  grid-template-columns: 292px 1fr;
   grid-template-rows: auto auto;
   grid-column-gap: 40px;
   grid-row-gap: 0px;

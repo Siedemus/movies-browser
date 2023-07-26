@@ -8,4 +8,11 @@ export const theme = {
     stormGray: "#74788B",
     waterloo: "#7E839A",
   },
+
+  breakpoint: {
+    desktopMax: "1368px",
+    desktop: "1200px",
+    ipod: "1024px",
+    large: "767px",
+  },
 };

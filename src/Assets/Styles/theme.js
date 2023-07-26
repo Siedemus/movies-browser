@@ -3,7 +3,9 @@ export const theme = {
     black: "#18181B",
     gray: "#E4E6F0",
     grayish: "#F5F5FA",
-    white: "FFFFFF",
+    white: "#FFFFFF",
     blue: "#D6E4FF",
+    stormGray: "#74788B",
+    waterloo: "#7E839A",
   },
 };

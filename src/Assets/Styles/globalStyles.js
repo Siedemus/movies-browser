@@ -10,7 +10,7 @@ html {
 }
 
 body {
- background-color: ${({ theme }) => theme.colors.grayish};
- font-family: "Poppins";
+    background-color: ${({ theme }) => theme.colors.grayish};
+    font-family: "Poppins";
 }
 `;

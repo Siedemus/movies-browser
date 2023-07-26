@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const NavigationContainer = styled.div`
-  background: ${({ theme }) => theme.color.black};
-  color: ${({ theme }) => theme.color.white};
+  background: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
   min-height: 94px;
   width: 100%;
 
@@ -70,7 +70,7 @@ export const Item = styled.li`
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration-line: none;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.colors.white};
   display: inline-flex;
   height: 48px;
   padding: 8px 24px;
@@ -86,6 +86,6 @@ export const StyledNavLink = styled(NavLink)`
   }
 
   &.active {
-    border: 1px solid ${({ theme }) => theme.color.white};
+    border: 1px solid ${({ theme }) => theme.colors.white};
   }
 `;

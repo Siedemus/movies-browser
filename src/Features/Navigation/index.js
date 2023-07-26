@@ -1,6 +1,6 @@
 import { NavigationContainer, NavigationWrapper, List, Item, StyledNavLink } from "./styled";
 import { NavigationLogo } from "./Logo";
-import { Container } from "../Container";
+import { Container } from "../../Common/Container";
 
 export const Navigation = () => {
 

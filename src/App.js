@@ -6,7 +6,7 @@ import {
 } from "react-router-dom/cjs/react-router-dom";
 import MoviesPage from "./Features/MoviesPage";
 import PeoplePage from "./Features/PeoplePage";
-import { Navigation } from "./Common/Navigation/index";
+import { Navigation } from "./Features/Navigation/index";
 
 function App() {
   return (

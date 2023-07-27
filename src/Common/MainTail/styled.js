@@ -5,7 +5,6 @@ export const MainTileContainer = styled.div`
   width: 324px;
   background: ${({ theme }) => theme.colors.white};
   height: 650px;
-
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
 
@@ -13,10 +12,10 @@ export const MainTileContainer = styled.div`
   flex-direction: column;
   justify-content: start;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     margin: auto;
-    width: 288px;
     height: 210px;
+    max-width: 500px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -79,7 +78,7 @@ export const Tag = styled.li`
   margin: 4px;
   border-radius: 5px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     padding: 4px 8px;
     font-size: 10px;
   }
@@ -87,7 +86,7 @@ export const Tag = styled.li`
 
 export const Content = styled.div`
   padding: 0px 16px 16px;
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     padding: 16px 0px 0px;
   }
 `;

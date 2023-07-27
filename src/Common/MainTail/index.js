@@ -20,7 +20,7 @@ export const MainTile = ({ title, subtitle, tags, rate }) => (
         <MainTileYear>{subtitle}</MainTileYear>
         <Tags>
           {tags.map((tag) => (
-            <Tag>{tag}</Tag>
+            <Tag key={tag}>{tag}</Tag>
           ))}
         </Tags>
       </Content>

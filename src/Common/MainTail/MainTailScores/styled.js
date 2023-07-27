@@ -6,7 +6,7 @@ export const Wrap = styled.div`
   align-items: center;
   padding: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     padding: 8px 0px;
   }
 `;

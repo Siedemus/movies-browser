@@ -2,31 +2,29 @@ import poster from "../../Assets/Images/poster.png";
 import {
   MainTileContainer,
   Image,
-  MainTileWrap,
   MainTileTitle,
   MainTileYear,
   Tag,
   Tags,
   Content,
+  MainTailBox,
 } from "./styled";
 import { MainTailScores } from "./MainTailScores/index";
 
-export const MainTile = ({ title, year, tag }) => (
+export const MainTile = ({ title, subtitle, tags, rate }) => (
   <MainTileContainer>
-    <MainTileWrap>
-      <Image src={poster} alt="" />
-      <div>
-        <Content>
-          <MainTileTitle>{title}</MainTileTitle>
-          <MainTileYear>{year}</MainTileYear>
-          <Tags>
+    <Image src={poster} alt="" />
+    <MainTailBox>
+      <Content>
+        <MainTileTitle>{title}</MainTileTitle>
+        <MainTileYear>{subtitle}</MainTileYear>
+        <Tags>
+          {tags.map((tag) => (
             <Tag>{tag}</Tag>
-            <Tag>{tag}</Tag>
-            <Tag>{tag}</Tag>
-          </Tags>
-        </Content>
-        <MainTailScores calssName="last" data={{ score: 7.6, votes: 643 }} />
-      </div>
-    </MainTileWrap>
+          ))}
+        </Tags>
+      </Content>
+      <MainTailScores data={rate} />
+    </MainTailBox>
   </MainTileContainer>
 );

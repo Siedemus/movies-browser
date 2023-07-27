@@ -3,14 +3,6 @@ import styled from "styled-components";
 export const MainTileContainer = styled.div`
   margin: auto;
   width: 324px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
-    margin: auto;
-    width: 288px;
-  }
-`;
-
-export const MainTileWrap = styled.div`
   background: ${({ theme }) => theme.colors.white};
   height: 650px;
 
@@ -21,16 +13,21 @@ export const MainTileWrap = styled.div`
   flex-direction: column;
   justify-content: start;
 
-  .last {
-    margin-bottom: auto;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    margin: auto;
+    width: 288px;
     height: 210px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
+`;
+
+export const MainTailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 export const Image = styled.img`
@@ -89,7 +86,7 @@ export const Tag = styled.li`
 `;
 
 export const Content = styled.div`
-  padding: 16px;
+  padding: 0px 16px 16px;
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     padding: 16px 0px 0px;
   }

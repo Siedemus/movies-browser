@@ -22,8 +22,8 @@ export const Navigation = () => {
             <Item>
               <StyledNavLink to="/people">People</StyledNavLink>
             </Item>
-            <Search />
           </List>
+          <Search />
         </NavigationWrapper>
       </Container>
     </NavigationContainer>

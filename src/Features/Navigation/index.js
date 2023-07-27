@@ -7,6 +7,7 @@ import {
 } from "./styled";
 import { NavigationLogo } from "./Logo/index";
 import { Container } from "../../Common/Container/index";
+import { Search } from "./Search";
 
 export const Navigation = () => {
   return (
@@ -21,6 +22,7 @@ export const Navigation = () => {
             <Item>
               <StyledNavLink to="/people">People</StyledNavLink>
             </Item>
+            <Search />
           </List>
         </NavigationWrapper>
       </Container>

@@ -2,7 +2,12 @@ import { MainTile } from "../../Common/MainTail";
 
 const MoviesPage = () => (
   <div>
-    <MainTile title="Mulan" year="2020" tag="Action" />
+    <MainTile
+      title="Mulan"
+      subtitle="2020"
+      tags={["Action", "Drama", "Commedy"]}
+      rate={{ score: 7.6, votes: 643 }}
+    />
   </div>
 );
 

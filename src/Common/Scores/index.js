@@ -1,4 +1,4 @@
-import { ReactComponent as Star } from "../../images/shape-star.svg";
+import { ReactComponent as Star } from "../../Assets/Images/shape-star.svg";
 import { AllVotes, MaxScore, Score, Wrap } from "./styled";
 
 export const Scores = ({ data }) => (

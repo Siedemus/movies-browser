@@ -4,11 +4,16 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  padding: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    padding: 8px 0px;
+  }
 `;
 
 export const Score = styled.span`
-  font-weight: 500;
-  font-size: 22px;
+  font-weight: 600;
+  font-size: 16px;
   margin-left: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
@@ -18,20 +23,11 @@ export const Score = styled.span`
   }
 `;
 
-export const MaxScore = styled.span`
-  font-weight: 400;
-  font-size: 14px;
-  margin-left: 8px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
-    display: none;
-  }
-`;
-
 export const AllVotes = styled.span`
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   margin-left: 12px;
+  color: ${({ theme }) => theme.colors.waterloo};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     font-weight: 400;

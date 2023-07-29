@@ -1,4 +1,3 @@
-import poster from "../../Assets/Images/poster.png";
 import {
   MainTileContainer,
   Image,
@@ -10,21 +9,36 @@ import {
   MainTailBox,
 } from "./styled";
 import { MainTailScores } from "./MainTailScores/index";
+import { images } from "../../apiURLs";
+import { useSelector } from "react-redux";
+import { selectGenres } from "./genresSlice";
 
-export const MainTile = ({ title, subtitle, tags, rate }) => (
-  <MainTileContainer>
-    <Image src={poster} alt="" />
-    <MainTailBox>
-      <Content>
-        <MainTileTitle>{title}</MainTileTitle>
-        <MainTileYear>{subtitle}</MainTileYear>
-        <Tags>
-          {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </Tags>
-      </Content>
-      <MainTailScores data={rate} />
-    </MainTailBox>
-  </MainTileContainer>
-);
+export const MainTile = ({ title, subtitle, tags, rate, poster }) => {
+  const genres = useSelector(selectGenres);
+
+  genres ? console.log(genres) : console.log("mam");
+
+  return (
+    <MainTileContainer>
+      <Image src={`${images}${poster}`} alt={`${title} poster`} />
+      <MainTailBox>
+        <Content>
+          <MainTileTitle>{title}</MainTileTitle>
+          <MainTileYear>{subtitle}</MainTileYear>
+          <Tags>
+            {genres ? (
+              tags.map((tag) => (
+                <Tag key={tag}>
+                  {genres.find((genre) => genre.id === tag).name}
+                </Tag>
+              ))
+            ) : (
+              <Tag>No Data</Tag>
+            )}
+          </Tags>
+        </Content>
+        <MainTailScores data={rate} />
+      </MainTailBox>
+    </MainTileContainer>
+  );
+};

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   MainTileContainer,
   Image,
@@ -13,7 +14,7 @@ import { images } from "../../apiURLs";
 import { useSelector } from "react-redux";
 import { selectGenres } from "./genresSlice";
 
-export const MainTile = ({ title, subtitle, tags, rate, poster }) => {
+export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
   const genres = useSelector(selectGenres);
 
   genres ? console.log(genres) : console.log("mam");
@@ -23,7 +24,9 @@ export const MainTile = ({ title, subtitle, tags, rate, poster }) => {
       <Image src={`${images}${poster}`} alt={`${title} poster`} />
       <MainTailBox>
         <Content>
-          <MainTileTitle>{title}</MainTileTitle>
+          <MainTileTitle>
+            <Link to={`/movies/${id}`}>{title}</Link>
+          </MainTileTitle>
           <MainTileYear>{subtitle}</MainTileYear>
           <Tags>
             {genres ? (

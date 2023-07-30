@@ -11,7 +11,7 @@ export const NavigationContainer = styled.div`
     min-height: 142px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     padding-top: 16px;
   }
 `;
@@ -23,10 +23,7 @@ export const NavigationWrapper = styled.nav`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.ipod}) {
     flex-wrap: wrap;
-    padding-left: 16px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    padding: 0 16px;
     justify-content: space-between;
   }
 `;
@@ -38,6 +35,7 @@ export const List = styled.ul`
   gap: 16px;
   flex-shrink: 0;
   padding-left: 80px;
+  padding-right: 12px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.ipod}) {
     gap: 12px;
@@ -63,7 +61,7 @@ export const Item = styled.li`
   line-height: normal;
   text-transform: uppercase;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     font-size: 12px;
   }
 `;

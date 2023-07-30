@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   padding-left: 12px;
   flex-shrink: 0;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme}) => theme.breakpoint.large}) {
     gap: 8px;
     padding-left: 0;
   }
@@ -24,7 +24,7 @@ export const Title = styled.p`
   letter-spacing: -1.5px;
   text-transform: capitalize;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme}) => theme.breakpoint.mini}) {
     font-size: 13px;
     line-height: 1, 3;
     letter-spacing: -0.5px;
@@ -34,7 +34,7 @@ export const Title = styled.p`
 `;
 
 export const CameraIcon = styled(Camera)`
-  @media (max-width: 767px) {
+  @media (max-width: ${({theme}) => theme.breakpoint.mini}) {
     width: 17px;
     height: 17px;
   }

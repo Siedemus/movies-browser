@@ -13,7 +13,7 @@ const MoviesPage = () => {
   useEffect(() => {
     dispatch(fetchMovies());
     dispatch(fetchGenres());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>
@@ -23,6 +23,7 @@ const MoviesPage = () => {
           ? moviesData.map((movie) => (
               <Movie key={movie.poster_path}>
                 <MainTile
+                  id={movie.id}
                   poster={movie.poster_path}
                   title={movie.title}
                   subtitle={movie.release_date}

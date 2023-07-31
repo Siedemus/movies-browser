@@ -1,4 +1,3 @@
-import poster from "../../images/poster.png";
 import { Scores } from "../Scores/";
 import {
   AdditionInfo,
@@ -11,37 +10,52 @@ import {
   Tags,
   TileWrap,
   Title,
-  Year,
+  Subtitle,
 } from "./styled";
+import { images } from "../../apiURLs";
+import { useSelector } from "react-redux";
+import { selectGenres } from "../MainTail/genresSlice";
 
 export const Tile = ({
   title,
-  year,
+  subtitle,
   infoProduction,
   infoDate,
-  tag,
+  tags,
+  poster,
+  rate,
   filmDescription,
-}) => (
-  <TileWrap>
-    <Image src={poster} alt="" />
-    <Content>
-      <Title>{title}</Title>
-      <Year>{year}</Year>
-      <Box>
-        <AdditionInfo>Production:</AdditionInfo>
-        <Info> {infoProduction}</Info>
-      </Box>
-      <Box>
-        <AdditionInfo>Release date:</AdditionInfo>
-        <Info> {infoDate}</Info>
-      </Box>
-      <Tags>
-        <Tag>{tag}</Tag>
-        <Tag>{tag}</Tag>
-        <Tag>{tag}</Tag>
-      </Tags>
-      <Scores data={{ score: 7.6, votes: 643 }} />
-    </Content>
-    <Description>{filmDescription}</Description>
-  </TileWrap>
-);
+}) => {
+  const genres = useSelector(selectGenres);
+
+  return (
+    <TileWrap>
+      <Image src={`${images}${poster}`} alt={`${title} poster`} />
+      <Content>
+        <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
+        <Box>
+          <AdditionInfo>Production:</AdditionInfo>
+          <Info> {infoProduction}</Info>
+        </Box>
+        <Box>
+          <AdditionInfo>Release date:</AdditionInfo>
+          <Info> {infoDate}</Info>
+        </Box>
+        <Tags>
+          {genres && tags ? (
+            tags.map((tag) => (
+              <Tag key={tag}>
+                {genres.find((genre) => genre.id === tag).name}
+              </Tag>
+            ))
+          ) : (
+            <Tag>No Data</Tag>
+          )}
+        </Tags>
+        <Scores data={rate} />
+      </Content>
+      <Description>{filmDescription}</Description>
+    </TileWrap>
+  );
+};

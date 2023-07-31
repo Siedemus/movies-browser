@@ -45,7 +45,7 @@ export const Title = styled.header`
   }
 `;
 
-export const Year = styled.div`
+export const Subtitle = styled.div`
   font-weight: 400;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.black};

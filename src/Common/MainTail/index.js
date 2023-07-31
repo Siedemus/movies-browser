@@ -17,8 +17,6 @@ import { selectGenres } from "./genresSlice";
 export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
   const genres = useSelector(selectGenres);
 
-  genres ? console.log(genres) : console.log("mam");
-
   return (
     <MainTileContainer>
       <Image src={`${images}${poster}`} alt={`${title} poster`} />

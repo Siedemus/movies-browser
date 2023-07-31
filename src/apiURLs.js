@@ -1,4 +1,5 @@
-export const images = "https://image.tmdb.org/t/p/w500";
+export const images = "https://image.tmdb.org/t/p/w300";
+export const poster_path = "https://image.tmdb.org/t/p/w1280";
 export const movies = "https://api.themoviedb.org/3/discover/movie";
 export const genres = "https://api.themoviedb.org/3/genre/movie/list";
 export const details_url = "https://api.themoviedb.org/3/movie/";

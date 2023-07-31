@@ -21,10 +21,10 @@ export const PosterPath = styled.div`
   margin: auto;
   background-size: contain;
   background-image: url(${(props) => props.src});
-  -webkit-box-shadow: inset 0px 0px 100px 50px
+  -webkit-box-shadow: inset 0px 0px 42px 47px
     ${({ theme }) => theme.colors.black};
-  -moz-box-shadow: inset 0px 0px 100px 50px ${({ theme }) => theme.colors.black};
-  box-shadow: inset 0px 0px 100px 50px ${({ theme }) => theme.colors.black};
+  -moz-box-shadow: inset 0px 0px 42px 47px ${({ theme }) => theme.colors.black};
+  box-shadow: inset 0px 0px 42px 47px ${({ theme }) => theme.colors.black};
 `;
 
 export const Container = styled.div`

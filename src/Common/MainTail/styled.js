@@ -30,8 +30,8 @@ export const MainTailBox = styled.div`
 `;
 
 export const Image = styled.img`
+  border-radius: 21px;
   padding: 16px;
-  border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     padding: 16px;

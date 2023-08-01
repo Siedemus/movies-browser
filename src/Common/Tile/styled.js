@@ -23,6 +23,7 @@ export const TileWrap = styled.article`
 export const Image = styled.img`
   grid-row-start: 1;
   grid-row-end: 3;
+  border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     width: 114px;

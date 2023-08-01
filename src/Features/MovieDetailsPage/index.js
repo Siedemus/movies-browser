@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import {
   Panel,
   Wrap,
+  SuperWrap,
   Container,
   TileContainer,
   Header,
   PosterPath,
 } from "./styled";
 import { Tile } from "../../Common/Tile";
-import { Scores } from "../../Common/Scores/index";
+import { ScoresDetails } from "./ScoresDetails/index";
 
 const MovieDetailsPage = (backdrop_path, title) => {
   const [movie, setMovie] = useState(null);
@@ -55,18 +56,18 @@ const MovieDetailsPage = (backdrop_path, title) => {
   }, [id]);
 
   return movie ? (
-    <>
+    <SuperWrap>
       <Wrap>
         <PosterPath
           src={`${poster_path}${movie.backdrop_path}`}
           alt={`${title}`}
-          // poster={movie.backdrop_path}
         >
           <Panel>
             <Container>
               <Header>{movie.original_title}</Header>
-              <Scores data={{ score: movie.vote_average }} />
-              <Scores data={{ votes: movie.vote_count }} />
+              <ScoresDetails
+                data={{ score: movie.vote_average, votes: movie.vote_count }}
+              />
             </Container>
           </Panel>
         </PosterPath>
@@ -86,7 +87,7 @@ const MovieDetailsPage = (backdrop_path, title) => {
           filmDescription={movie.overview}
         />
       </TileContainer>
-    </>
+    </SuperWrap>
   ) : null;
 };
 

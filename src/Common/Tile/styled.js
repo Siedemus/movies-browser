@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const TileWrap = styled.article`
   margin: auto;
-  max-height: 544px;
+  min-height: 544px;
   max-width: 1368px;
-  min-width: ${({ theme }) => theme.breakpoint.mini};
+  //min-width: ${({ theme }) => theme.breakpoint.mini};
   background: ${({ theme }) => theme.colors.white};
   padding: 40px;
   border-radius: 5px;
@@ -17,8 +17,8 @@ export const TileWrap = styled.article`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     margin: auto;
-    min-height: 400px;
-    width: 288px;
+    //min-height: 400px;
+    //min-width: 288px;
     padding: 16px;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -33,7 +33,6 @@ export const Image = styled.img`
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
-    min-width: 114px;
     max-height: 288px;
   }
 `;

@@ -9,12 +9,6 @@ export const Wrap = styled.div`
   }
 `;
 
-export const SuperWrap = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
-    min-width: fit-content;
-  }
-`;
-
 export const Panel = styled.div`
   padding: 0px 0px 50px 50px;
 
@@ -32,13 +26,13 @@ export const Panel = styled.div`
 
 export const PosterPath = styled.div`
   min-height: 770px;
-  width: 1368px;
+  max-width: 1368px;
   margin: auto;
   display: flex;
   flex-direction: row-reverse;
   align-items: end;
-
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-image: url(${(props) => props.src});
   -webkit-box-shadow: inset 0px 0px 42px 47px
     ${({ theme }) => theme.colors.black};
@@ -62,7 +56,7 @@ export const Container = styled.div`
 `;
 
 export const TileContainer = styled.div`
-  width: 1368px;
+  max-width: 1368px;
   margin: auto;
 `;
 

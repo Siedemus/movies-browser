@@ -27,7 +27,7 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
           </MainTileTitle>
           <MainTileYear>{subtitle}</MainTileYear>
           <Tags>
-            {genres ? (
+            {genres && tags ? (
               tags.map((tag) => (
                 <Tag key={tag}>
                   {genres.find((genre) => genre.id === tag).name}
@@ -38,7 +38,7 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
             )}
           </Tags>
         </Content>
-        <MainTailScores data={rate} />
+        {rate ? <MainTailScores data={rate} /> : null}
       </MainTailBox>
     </MainTileContainer>
   );

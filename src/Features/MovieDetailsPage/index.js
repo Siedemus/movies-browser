@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { details_url, poster_path } from "../../apiURLs";
+import { credits, details_url, poster_path } from "../../apiURLs";
 import { useParams } from "react-router-dom";
 import {
   Panel,
   Wrap,
-  SuperWrap,
   Container,
   TileContainer,
   Header,
@@ -12,9 +11,17 @@ import {
 } from "./styled";
 import { Tile } from "../../Common/Tile";
 import { ScoresDetails } from "./ScoresDetails/index";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchMovies,
+  selectMoviesList,
+} from "../../Features/MoviesPage/moviesSlice";
+import { fetchGenres } from "../../Common/MainTail/genresSlice";
+import { MainTile } from "../../Common/MainTail";
 
-const MovieDetailsPage = (backdrop_path, title) => {
+const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
+  const [persons, setPersons] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -46,21 +53,32 @@ const MovieDetailsPage = (backdrop_path, title) => {
       },
     };
 
-    fetch(backdrop_path + `${id}`, options)
+    const idCredits = credits.replace("{movie_id}", id);
+
+    fetch(idCredits, options)
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        setMovie(json);
+        setPersons(json);
       })
       .catch((err) => console.error("error:" + err));
   }, [id]);
 
+  const dispatch = useDispatch();
+
+  const moviesData = useSelector(selectMoviesList);
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+    dispatch(fetchGenres());
+  }, [dispatch]);
+
   return movie ? (
-    <SuperWrap>
+    <>
       <Wrap>
         <PosterPath
           src={`${poster_path}${movie.backdrop_path}`}
-          alt={`${title}`}
+          alt={`${movie.title}`}
         >
           <Panel>
             <Container>
@@ -72,22 +90,40 @@ const MovieDetailsPage = (backdrop_path, title) => {
           </Panel>
         </PosterPath>
       </Wrap>
-      <TileContainer key={movie.poster_path}>
-        <Tile
-          id={movie.id}
-          poster={movie.poster_path}
-          title={movie.title}
-          subtitle={movie.release_date}
-          infoProduction={movie.production_countries
-            .map(({ name }) => name)
-            .join(", ")}
-          infoDate={movie.release_date}
-          tags={movie.genre_ids}
-          rate={{ score: movie.vote_average, votes: movie.vote_count }}
-          filmDescription={movie.overview}
-        />
-      </TileContainer>
-    </SuperWrap>
+      {moviesData ? (
+        <TileContainer key={movie.poster_path}>
+          <Tile
+            id={movie.id}
+            poster={movie.poster_path}
+            title={movie.title}
+            subtitle={movie.release_date.slice(0, 4)}
+            infoProduction={movie.production_countries
+              .map(({ name }) => name)
+              .join(", ")}
+            infoDate={movie.release_date}
+            tags={movie.genres.map(({ id }) => id)}
+            rate={{ score: movie.vote_average, votes: movie.vote_count }}
+            filmDescription={movie.overview}
+          />
+
+          <ul>
+            {persons
+              ? persons.cast.map((person) => (
+                  //to do: change MainTail to Oleksander version
+                  <MainTile
+                    id={id}
+                    poster={person.profile_path}
+                    title={person.name}
+                    subtitle={person.character}
+                    tags={[]}
+                  />
+                ))
+              : null}
+          </ul>
+        </TileContainer>
+      ) : null}
+      ;
+    </>
   ) : null;
 };
 

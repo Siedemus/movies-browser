@@ -73,3 +73,26 @@ export const Header = styled.h2`
     margin-bottom: 4px;
   }
 `;
+
+export const PeopleList = styled.ul`
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0;
+`;
+
+export const PeopleHeader = styled.h2`
+  color: ${({ theme }) => theme.colors.black};
+
+  margin-top: 64px;
+  margin-bottom: 0px;
+  font-weight: 600;
+  font-size: 36px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+`;

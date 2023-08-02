@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { credits, details_url, poster_path } from "../../apiURLs";
+import { credits_url, details_url, poster_path } from "../../apiURLs";
 import { useParams } from "react-router-dom";
 import {
   Panel,
@@ -8,6 +8,8 @@ import {
   TileContainer,
   Header,
   PosterPath,
+  PeopleList,
+  PeopleHeader,
 } from "./styled";
 import { Tile } from "../../Common/Tile";
 import { ScoresDetails } from "./ScoresDetails/index";
@@ -53,7 +55,7 @@ const MovieDetailsPage = () => {
       },
     };
 
-    const idCredits = credits.replace("{movie_id}", id);
+    const idCredits = credits_url.replace("{movie_id}", id);
 
     fetch(idCredits, options)
       .then((res) => res.json())
@@ -105,10 +107,10 @@ const MovieDetailsPage = () => {
             rate={{ score: movie.vote_average, votes: movie.vote_count }}
             filmDescription={movie.overview}
           />
-
-          <ul>
+          <PeopleHeader>Cast</PeopleHeader>
+          <PeopleList>
             {persons
-              ? persons.cast.map((person) => (
+              ? persons.cast.slice(0, 16).map((person) => (
                   //to do: change MainTail to Oleksander version
                   <MainTile
                     id={id}
@@ -119,7 +121,22 @@ const MovieDetailsPage = () => {
                   />
                 ))
               : null}
-          </ul>
+          </PeopleList>
+          <PeopleHeader>Crew</PeopleHeader>
+          <PeopleList>
+            {persons
+              ? persons.crew.slice(0, 8).map((person) => (
+                  //to do: change MainTail to Oleksander version
+                  <MainTile
+                    id={id}
+                    poster={person.profile_path}
+                    title={person.name}
+                    subtitle={person.job}
+                    tags={[]}
+                  />
+                ))
+              : null}
+          </PeopleList>
         </TileContainer>
       ) : null}
       ;

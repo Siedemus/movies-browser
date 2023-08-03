@@ -99,9 +99,7 @@ const MovieDetailsPage = () => {
             poster={movie.poster_path}
             title={movie.title}
             subtitle={movie.release_date.slice(0, 4)}
-            infoProduction={movie.production_countries
-              .map(({ name }) => name)
-              .join(", ")}
+            infoProduction={movie.production_countries}
             infoDate={movie.release_date}
             tags={movie.genres.map(({ id }) => id)}
             rate={{ score: movie.vote_average, votes: movie.vote_count }}

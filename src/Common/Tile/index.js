@@ -6,6 +6,8 @@ import {
   Description,
   Image,
   Info,
+  InfoLong,
+  InfoShort,
   Tag,
   Tags,
   TileWrap,
@@ -36,7 +38,13 @@ export const Tile = ({
         <Subtitle>{subtitle}</Subtitle>
         <Box>
           <AdditionInfo>Production:</AdditionInfo>
-          <Info> {infoProduction}</Info>
+          <InfoLong>
+            {" "}
+            {infoProduction.map(({ name }) => name).join(", ")}
+          </InfoLong>
+          <InfoShort>
+            {infoProduction.map(({ iso_3166_1 }) => iso_3166_1).join(", ")}
+          </InfoShort>
         </Box>
         <Box>
           <AdditionInfo>Release date:</AdditionInfo>

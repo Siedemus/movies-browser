@@ -7,6 +7,7 @@ export const theme = {
     blue: "#D6E4FF",
     stormGray: "#74788B",
     waterloo: "#7E839A",
+    silver: "#C4C4C4"
   },
   breakpoint: {
     desktopMax: "1368px",

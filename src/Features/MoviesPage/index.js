@@ -26,7 +26,7 @@ const MoviesPage = () => {
                   id={movie.id}
                   poster={movie.poster_path}
                   title={movie.title}
-                  subtitle={movie.release_date}
+                  subtitle={movie.release_date.slice(0, 4)}
                   tags={movie.genre_ids}
                   rate={{ score: movie.vote_average, votes: movie.vote_count }}
                 />

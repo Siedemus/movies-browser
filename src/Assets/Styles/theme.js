@@ -14,5 +14,6 @@ export const theme = {
     ipod: "1024px",
     large: "767px",
     mini: "600px",
+    micro: "400px",
   },
 };

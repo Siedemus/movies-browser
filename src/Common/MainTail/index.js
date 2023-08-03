@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { StyledNavLink } from "../../Assets/Styles/styled";
 import {
   MainTileContainer,
   Image,
@@ -23,7 +23,7 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
       <MainTailBox>
         <Content>
           <MainTileTitle>
-            <Link to={`/movies/${id}`}>{title}</Link>
+            <StyledNavLink to={`/movies/${id}`}>{title}</StyledNavLink>
           </MainTileTitle>
           <MainTileYear>{subtitle}</MainTileYear>
           <Tags>

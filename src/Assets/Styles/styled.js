@@ -16,6 +16,6 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   }
 
   &.${activeClassName} {
-    font-weight: bold;
+    color: ${({ theme }) => theme.colors.stormGray};
   }
 `;

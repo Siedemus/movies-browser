@@ -13,7 +13,6 @@ import { Pagination } from "../Pagination";
 const MoviesPage = () => {
   const dispatch = useDispatch();
   const currentPage = useSelector(selectCurrentPage);
-
   const moviesData = useSelector(selectMoviesList);
 
   useEffect(() => {

@@ -6,7 +6,6 @@ import {
   nextPage,
   previousPage,
   selectCurrentPage,
-  selectTotalPages,
 } from "../MoviesPage/moviesSlice";
 
 export const Pagination = () => {

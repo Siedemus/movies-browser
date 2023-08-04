@@ -1,4 +1,4 @@
-import { delay, call, put, takeEvery, select } from "redux-saga/effects";
+import { call, put, takeEvery, select } from "redux-saga/effects";
 import {
   fetchMovies,
   setMovies,

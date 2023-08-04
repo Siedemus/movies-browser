@@ -9,6 +9,7 @@ export const Button = styled.button`
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  border-radius: 5px;
 
   ${({ next }) =>
     next &&

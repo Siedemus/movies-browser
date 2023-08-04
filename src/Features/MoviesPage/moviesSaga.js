@@ -3,14 +3,14 @@ import {
   fetchMovies,
   setMovies,
   setError,
-  selectCurrentPage,
+  selectCurrentMoviePage,
 } from "./moviesSlice";
 import { getMovies } from "./getMovies";
 
 function* fetchMoviesHandler() {
   try {
-    const currentPage = yield select(selectCurrentPage);
-    const movies = yield call(getMovies, currentPage);
+    const currentMoviePage = yield select(selectCurrentMoviePage);
+    const movies = yield call(getMovies, currentMoviePage);
     yield put(setMovies(movies));
   } catch {
     yield put(setError);

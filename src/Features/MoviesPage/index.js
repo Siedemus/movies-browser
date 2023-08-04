@@ -4,20 +4,24 @@ import { Container, Header, Movie, MovieList } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMovies,
-  selectCurrentPage,
+  selectCurrentMoviePage,
   selectMoviesList,
+  firstMoviePage,
+  previousMoviePage,
+  nextMoviePage,
+  lastMoviePage,
 } from "./moviesSlice";
 import { fetchGenres } from "../../Common/MainTail/genresSlice";
-import { Pagination } from "../Pagination";
+import { Pagination } from "../../Common/Pagination";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
-  const currentPage = useSelector(selectCurrentPage);
+  const currentMoviePage = useSelector(selectCurrentMoviePage);
   const moviesData = useSelector(selectMoviesList);
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [currentPage]);
+  }, [currentMoviePage]);
 
   useEffect(() => {
     dispatch(fetchGenres());
@@ -45,7 +49,13 @@ const MoviesPage = () => {
               ))
             : null}
         </MovieList>
-        <Pagination />
+        <Pagination
+          currentPage={currentMoviePage}
+          firstPage={firstMoviePage}
+          previousPage={previousMoviePage}
+          nextPage={nextMoviePage}
+          lastPage={lastMoviePage}
+        />
       </Container>
     </>
   );

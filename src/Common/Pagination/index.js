@@ -1,15 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Text, Button, Container, Vector, Important } from "./styled";
-import {
-  firstPage,
-  lastPage,
-  nextPage,
-  previousPage,
-  selectCurrentPage,
-} from "../MoviesPage/moviesSlice";
 
-export const Pagination = () => {
-  const currentPage = useSelector(selectCurrentPage);
+export const Pagination = ({
+  currentPage,
+  firstPage,
+  previousPage,
+  nextPage,
+  lastPage,
+}) => {
   const dispatch = useDispatch();
 
   return (

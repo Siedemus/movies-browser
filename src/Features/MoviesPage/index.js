@@ -10,17 +10,29 @@ import {
   previousMoviePage,
   nextMoviePage,
   lastMoviePage,
+  setMoviePageByQuery,
 } from "./moviesSlice";
 import { fetchGenres } from "../../Common/MainTail/genresSlice";
 import { Pagination } from "../../Common/Pagination";
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
   const currentMoviePage = useSelector(selectCurrentMoviePage);
   const moviesData = useSelector(selectMoviesList);
 
+  const location = useLocation();
+  const history = useHistory();
+  const query = new URLSearchParams(location.search).get("page");
+
+  useEffect(() => {
+    dispatch(setMoviePageByQuery(query));
+  }, [query]);
+
   useEffect(() => {
     dispatch(fetchMovies());
+    history.replace(`${location.pathname}?page=${currentMoviePage}`);
   }, [currentMoviePage]);
 
   useEffect(() => {

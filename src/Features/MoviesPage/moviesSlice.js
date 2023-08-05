@@ -36,6 +36,9 @@ const moviesSlice = createSlice({
     lastMoviePage: (state) => {
       state.currentPage = 500;
     },
+    setMoviePageByQuery: (state, { payload }) => {
+      state.currentPage = payload;
+    },
   },
 });
 
@@ -47,6 +50,7 @@ export const {
   previousMoviePage,
   nextMoviePage,
   lastMoviePage,
+  setMoviePageByQuery,
 } = moviesSlice.actions;
 
 const selectMoviesState = (state) => state.movies.data;

@@ -37,7 +37,15 @@ const moviesSlice = createSlice({
       state.currentPage = 500;
     },
     setMoviePageByQuery: (state, { payload }) => {
-      state.currentPage = payload;
+      if (isNaN(payload)) {
+        state.currentPage = 1;
+      } else if (payload > 500) {
+        state.currentPage = 500;
+      } else if (payload < 1) {
+        state.currentPage = 1;
+      } else {
+        state.currentPage = payload;
+      }
     },
   },
 });

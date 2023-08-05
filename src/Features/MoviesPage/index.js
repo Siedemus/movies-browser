@@ -27,7 +27,7 @@ const MoviesPage = () => {
   const query = new URLSearchParams(location.search).get("page");
 
   useEffect(() => {
-    dispatch(setMoviePageByQuery(query));
+    dispatch(setMoviePageByQuery(parseInt(query)));
   }, [query]);
 
   useEffect(() => {

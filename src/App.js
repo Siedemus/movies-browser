@@ -5,7 +5,7 @@ import {
   Redirect,
 } from "react-router-dom/cjs/react-router-dom";
 import MoviesPage from "./Features/MoviesPage";
-import PeoplePage from "./Features/PeoplePage";
+import { PeoplePage } from "./Features/PeoplePage";
 import { Navigation } from "./Features/Navigation/index";
 
 function App() {

@@ -11,9 +11,7 @@ export const Wrap = styled.div`
 
 export const Panel = styled.div`
   padding: 0px 0px 50px 50px;
-
   width: 1368px;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

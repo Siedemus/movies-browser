@@ -9,8 +9,8 @@ const options = {
   },
 };
 
-export const getMovies = async () => {
-  const response = await fetch(movies, options);
+export const getMovies = async (currentPage) => {
+  const response = await fetch(`${movies}?page=${currentPage}`, options);
 
   if (!response.ok) {
     throw new Error();

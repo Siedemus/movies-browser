@@ -1,11 +1,16 @@
-import { delay, call, put, takeEvery } from "redux-saga/effects";
-import { fetchMovies, setMovies, setError } from "./moviesSlice";
+import { call, put, takeEvery, select } from "redux-saga/effects";
+import {
+  fetchMovies,
+  setMovies,
+  setError,
+  selectCurrentMoviePage,
+} from "./moviesSlice";
 import { getMovies } from "./getMovies";
 
 function* fetchMoviesHandler() {
   try {
-    yield delay(2000);
-    const movies = yield call(getMovies);
+    const currentMoviePage = yield select(selectCurrentMoviePage);
+    const movies = yield call(getMovies, currentMoviePage);
     yield put(setMovies(movies));
   } catch {
     yield put(setError);

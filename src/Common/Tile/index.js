@@ -37,7 +37,7 @@ export const Tile = ({
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
         <Box>
-          <AdditionInfo>Production:</AdditionInfo>
+          <AdditionInfo>Production:&nbsp;</AdditionInfo>
           <InfoLong>
             {" "}
             {infoProduction.map(({ name }) => name).join(", ")}
@@ -47,8 +47,8 @@ export const Tile = ({
           </InfoShort>
         </Box>
         <Box>
-          <AdditionInfo>Release date:</AdditionInfo>
-          <Info> {infoDate}</Info>
+          <AdditionInfo>Release date:&nbsp;</AdditionInfo>
+          <Info> {infoDate.replace(/-/g, ".")}</Info>
         </Box>
         <Tags>
           {genres && tags ? (

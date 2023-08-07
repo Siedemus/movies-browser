@@ -7,7 +7,6 @@ import { Container } from "../../Common/Container/index";
 import { PeopleListTile } from "../../Common/TilePeople/index";
 import {
     selectPeopleList,
-    selectStatus,
     selectTotalResult,
 } from "./peopleSlice";
 import { searchQueryParamName } from "../../Features/Navigation/Search/searchQueryParamName";

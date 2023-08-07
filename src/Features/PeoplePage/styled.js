@@ -5,7 +5,7 @@ export const PeopleListTitle = styled.h1`
   font-size: 36px;
   font-weight: 600;
   line-height: 1.2;
-  color: ${({ theme }) => theme.color.woodsmoke};
+  color: ${({ theme }) => theme.colors.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.desktopMax}) {
     margin-left: 16px;

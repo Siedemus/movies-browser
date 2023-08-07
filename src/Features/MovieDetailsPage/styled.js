@@ -88,6 +88,7 @@ export const PeopleHeader = styled.h2`
 
   margin-top: 64px;
   margin-bottom: 0px;
+  margin-left: 40px;
   font-weight: 600;
   font-size: 36px;
 

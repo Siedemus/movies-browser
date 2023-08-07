@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Scores } from "../Scores/";
 import {
   AdditionInfo,
@@ -14,6 +15,8 @@ import {
   Title,
   Subtitle,
 } from "./styled";
+import { useDispatch } from "react-redux";
+import { fetchGenres } from "../../Common/MainTail/genresSlice";
 import { images } from "../../apiURLs";
 import { useSelector } from "react-redux";
 import { selectGenres } from "../MainTail/genresSlice";
@@ -29,6 +32,11 @@ export const Tile = ({
   filmDescription,
 }) => {
   const genres = useSelector(selectGenres);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, [dispatch]);
 
   return (
     <TileWrap>

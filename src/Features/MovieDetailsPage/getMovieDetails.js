@@ -14,8 +14,8 @@ export const getMovieDetails = async (id) => {
   const response = await fetch(details_url + `${id}`, getAuthorizationOption);
 
   if (!response.ok) {
-    throw new Error();
+    new Error(response.statusText);
   }
 
-  return response.json();
+  return await response.json();
 };

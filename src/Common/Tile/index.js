@@ -1,4 +1,4 @@
-import poster from "../../images/poster.png";
+import { useEffect } from "react";
 import { Scores } from "../Scores/";
 import {
   AdditionInfo,
@@ -7,41 +7,71 @@ import {
   Description,
   Image,
   Info,
+  InfoLong,
+  InfoShort,
   Tag,
   Tags,
   TileWrap,
   Title,
-  Year,
+  Subtitle,
 } from "./styled";
+import { useDispatch } from "react-redux";
+import { fetchGenres } from "../../Common/MainTail/genresSlice";
+import { images } from "../../apiURLs";
+import { useSelector } from "react-redux";
+import { selectGenres } from "../MainTail/genresSlice";
 
 export const Tile = ({
   title,
-  year,
+  subtitle,
   infoProduction,
   infoDate,
-  tag,
+  tags,
+  poster,
+  rate,
   filmDescription,
-}) => (
-  <TileWrap>
-    <Image src={poster} alt="" />
-    <Content>
-      <Title>{title}</Title>
-      <Year>{year}</Year>
-      <Box>
-        <AdditionInfo>Production:</AdditionInfo>
-        <Info> {infoProduction}</Info>
-      </Box>
-      <Box>
-        <AdditionInfo>Release date:</AdditionInfo>
-        <Info> {infoDate}</Info>
-      </Box>
-      <Tags>
-        <Tag>{tag}</Tag>
-        <Tag>{tag}</Tag>
-        <Tag>{tag}</Tag>
-      </Tags>
-      <Scores data={{ score: 7.6, votes: 643 }} />
-    </Content>
-    <Description>{filmDescription}</Description>
-  </TileWrap>
-);
+}) => {
+  const genres = useSelector(selectGenres);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, [dispatch]);
+
+  return (
+    <TileWrap>
+      <Image src={`${images}${poster}`} alt={`${title} poster`} />
+      <Content>
+        <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
+        <Box>
+          <AdditionInfo>Production:&nbsp;</AdditionInfo>
+          <InfoLong>
+            {" "}
+            {infoProduction.map(({ name }) => name).join(", ")}
+          </InfoLong>
+          <InfoShort>
+            {infoProduction.map(({ iso_3166_1 }) => iso_3166_1).join(", ")}
+          </InfoShort>
+        </Box>
+        <Box>
+          <AdditionInfo>Release date:&nbsp;</AdditionInfo>
+          <Info> {infoDate.replace(/-/g, ".")}</Info>
+        </Box>
+        <Tags>
+          {genres && tags ? (
+            tags.map((tag) => (
+              <Tag key={tag}>
+                {genres.find((genre) => genre.id === tag).name}
+              </Tag>
+            ))
+          ) : (
+            <Tag>No Data</Tag>
+          )}
+        </Tags>
+        <Scores data={rate} />
+      </Content>
+      <Description>{filmDescription}</Description>
+    </TileWrap>
+  );
+};

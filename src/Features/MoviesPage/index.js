@@ -37,7 +37,7 @@ const MoviesPage = () => {
 
   useEffect(() => {
     dispatch(fetchGenres());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -48,9 +48,10 @@ const MoviesPage = () => {
             ? moviesData.map((movie) => (
                 <Movie key={movie.poster_path}>
                   <MainTile
+                    id={movie.id}
                     poster={movie.poster_path}
                     title={movie.title}
-                    subtitle={movie.release_date}
+                    subtitle={movie.release_date.slice(0, 4)}
                     tags={movie.genre_ids}
                     rate={{
                       score: movie.vote_average,
@@ -70,6 +71,7 @@ const MoviesPage = () => {
         />
       </Container>
     </>
+
   );
 };
 

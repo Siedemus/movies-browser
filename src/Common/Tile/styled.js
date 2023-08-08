@@ -1,17 +1,24 @@
 import styled from "styled-components";
 
 export const TileWrap = styled.article`
+  margin: auto;
+  max-width: 1368px;
+  margin-left: 40px;
+  margin-right: 40px;
   background: ${({ theme }) => theme.colors.white};
   padding: 40px;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
   display: grid;
-  grid-template-columns: 292px 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
   grid-column-gap: 40px;
   grid-row-gap: 0px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    margin: auto;
+    margin-left: 40px;
+    margin-right: 40px;
     padding: 16px;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -23,10 +30,14 @@ export const TileWrap = styled.article`
 export const Image = styled.img`
   grid-row-start: 1;
   grid-row-end: 3;
+  border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
-    width: 114px;
-    height: auto;
+    max-height: 288px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.micro}) {
+    max-height: 150px;
   }
 `;
 
@@ -45,7 +56,7 @@ export const Title = styled.header`
   }
 `;
 
-export const Year = styled.div`
+export const Subtitle = styled.div`
   font-weight: 400;
   font-size: 18px;
   color: ${({ theme }) => theme.colors.black};
@@ -55,6 +66,7 @@ export const Year = styled.div`
     font-weight: 400;
     font-size: 13px;
     margin-bottom: 5px;
+    margin-top: 4px;
   }
 `;
 
@@ -90,6 +102,28 @@ export const Info = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     font-weight: 400;
     font-size: 12px;
+  }
+`;
+
+export const InfoLong = styled.span`
+  margin-right: 11px;
+  font-weight: 400;
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.black};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    display: none;
+  }
+`;
+
+export const InfoShort = styled.span`
+  font-weight: 400;
+  font-size: 12px;
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.black};
+
+  @media (min-width: 599px) {
+    display: none;
   }
 `;
 

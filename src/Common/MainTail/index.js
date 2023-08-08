@@ -1,3 +1,4 @@
+import { StyledNavLink } from "../../Assets/Styles/styled";
 import {
   MainTileContainer,
   Image,
@@ -13,30 +14,32 @@ import { images } from "../../apiURLs";
 import { useSelector } from "react-redux";
 import { selectGenres } from "./genresSlice";
 
-export const MainTile = ({ title, subtitle, tags, rate, poster }) => {
+export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
   const genres = useSelector(selectGenres);
 
   return (
-    <MainTileContainer>
-      <Image src={`${images}${poster}`} alt={`${title} poster`} />
-      <MainTailBox>
-        <Content>
-          <MainTileTitle>{title}</MainTileTitle>
-          <MainTileYear>{subtitle}</MainTileYear>
-          <Tags>
-            {genres ? (
-              tags.map((tag) => (
-                <Tag key={tag}>
-                  {genres.find((genre) => genre.id === tag).name}
-                </Tag>
-              ))
-            ) : (
-              <Tag>No Data</Tag>
-            )}
-          </Tags>
-        </Content>
-        <MainTailScores data={rate} />
-      </MainTailBox>
-    </MainTileContainer>
+    <StyledNavLink to={`/movies/${id}`}>
+      <MainTileContainer>
+        <Image src={`${images}${poster}`} alt={`${title} poster`} />
+        <MainTailBox>
+          <Content>
+            <MainTileTitle>{title}</MainTileTitle>
+            <MainTileYear>{subtitle}</MainTileYear>
+            <Tags>
+              {genres && tags ? (
+                tags.map((tag) => (
+                  <Tag key={tag}>
+                    {genres.find((genre) => genre.id === tag).name}
+                  </Tag>
+                ))
+              ) : (
+                <Tag>No Data</Tag>
+              )}
+            </Tags>
+          </Content>
+          {rate ? <MainTailScores data={rate} /> : null}
+        </MainTailBox>
+      </MainTileContainer>
+    </StyledNavLink>
   );
 };

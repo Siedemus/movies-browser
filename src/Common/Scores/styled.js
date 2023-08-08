@@ -7,6 +7,7 @@ export const Wrap = styled.div`
 `;
 
 export const Score = styled.span`
+  line-height: 130%;
   font-weight: 500;
   font-size: 22px;
   margin-left: 8px;

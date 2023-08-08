@@ -13,13 +13,22 @@ import {
 import { Tile } from "../../Common/Tile";
 import { ScoresDetails } from "./ScoresDetails/index";
 import { MainTile } from "../../Common/MainTail";
-import { useMovieDetails } from "./getMovieDetails";
-import { useMovieCredits } from "./getMovieCredits";
+import { fetchCredits, selectCredits } from "./creditsSlice";
+import { fetchDetails, selectDetails } from "./detailsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
-  const [movie] = useMovieDetails(id);
-  const [credits] = useMovieCredits(id);
+
+  const dispatch = useDispatch();
+  const credits = useSelector(selectCredits);
+  const movie = useSelector(selectDetails);
+
+  useEffect(() => {
+    dispatch(fetchCredits(id));
+    dispatch(fetchDetails(id));
+  }, [dispatch, id]);
 
   return movie ? (
     <>

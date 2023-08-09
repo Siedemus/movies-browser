@@ -28,12 +28,12 @@ const MoviesPage = () => {
 
   useEffect(() => {
     dispatch(setMoviePageByQuery(parseInt(query)));
-  }, [query]);
+  }, [query, dispatch]);
 
   useEffect(() => {
     dispatch(fetchMovies());
     history.replace(`${location.pathname}?page=${currentMoviePage}`);
-  }, [currentMoviePage]);
+  }, [currentMoviePage, dispatch, history, location.pathname]);
 
   useEffect(() => {
     dispatch(fetchGenres());
@@ -71,7 +71,6 @@ const MoviesPage = () => {
         />
       </Container>
     </>
-
   );
 };
 

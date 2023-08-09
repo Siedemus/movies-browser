@@ -12,11 +12,11 @@ import {
 } from "./styled";
 import { Tile } from "../../Common/Tile";
 import { ScoresDetails } from "./ScoresDetails/index";
-import { MainTile } from "../../Common/MainTail";
 import { fetchCredits, selectCredits } from "./creditsSlice";
 import { fetchDetails, selectDetails } from "./detailsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { PeopleListTile } from "../../Common/TilePeople";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -62,31 +62,31 @@ const MovieDetailsPage = () => {
         <PeopleHeader>Cast</PeopleHeader>
         <PeopleList>
           {credits
-            ? credits.cast.slice(0, 16).map((person) => (
-                //to do: change MainTail to Oleksander version
-                <MainTile
-                  id={id}
-                  poster={person.profile_path}
-                  title={person.name}
-                  subtitle={person.character}
-                  tags={[]}
-                />
-              ))
+            ? credits.cast
+                .slice(0, 16)
+                .map((person) => (
+                  <PeopleListTile
+                    id={id}
+                    poster={person.profile_path}
+                    name={person.name}
+                    character={person.character}
+                  />
+                ))
             : null}
         </PeopleList>
         <PeopleHeader>Crew</PeopleHeader>
         <PeopleList>
           {credits
-            ? credits.crew.slice(0, 8).map((person) => (
-                //to do: change MainTail to Oleksander version
-                <MainTile
-                  id={id}
-                  poster={person.profile_path}
-                  title={person.name}
-                  subtitle={person.job}
-                  tags={[]}
-                />
-              ))
+            ? credits.crew
+                .slice(0, 8)
+                .map((person) => (
+                  <PeopleListTile
+                    id={id}
+                    poster={person.profile_path}
+                    name={person.name}
+                    character={person.job}
+                  />
+                ))
             : null}
         </PeopleList>
       </TileContainer>

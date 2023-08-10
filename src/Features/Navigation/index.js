@@ -9,18 +9,18 @@ import { NavigationLogo } from "./Logo/index";
 import { Container } from "../../Common/Container/index";
 import { Search } from "./Search";
 
-export const Navigation = () => {
+export const Navigation = (toMovies, toPeople) => {
   return (
     <NavigationContainer>
       <Container>
         <NavigationWrapper>
-          <NavigationLogo />
+          <NavigationLogo toMovies={toMovies} />
           <List>
             <Item>
-              <StyledNavLink to="/movies">Movies</StyledNavLink>
+              <StyledNavLink to={toMovies}>Movies</StyledNavLink>
             </Item>
             <Item>
-              <StyledNavLink to="/people">People</StyledNavLink>
+            <StyledNavLink to={toPeople}>People</StyledNavLink>
             </Item>
           </List>
           <Search />

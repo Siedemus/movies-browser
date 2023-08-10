@@ -5,14 +5,14 @@ import {
   Redirect,
 } from "react-router-dom/cjs/react-router-dom";
 import MoviesPage from "./Features/MoviesPage";
-import PeoplePage from "./Features/PeoplePage";
+import { PeoplePage } from "./Features/PeoplePage";
 import { Navigation } from "./Features/Navigation/index";
 import MovieDetailsPage from "./Features/MovieDetailsPage";
 
 function App() {
   return (
     <HashRouter>
-      <Navigation />
+      <Navigation toMovies={"/movies"} toPeople={"/people"} />
       <Switch>
         <Route path="/movies/:id">
           <MovieDetailsPage />

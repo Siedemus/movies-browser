@@ -11,16 +11,20 @@ import {
   nextMoviePage,
   lastMoviePage,
   setMoviePageByQuery,
+  selectStatus,
 } from "./moviesSlice";
 import { fetchGenres } from "../../Common/MainTail/genresSlice";
 import { Pagination } from "../../Common/Pagination";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { MoonLoader } from "react-spinners";
+import { LoaderContainer } from "../../Common/LoaderContainer/styled";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
   const currentMoviePage = useSelector(selectCurrentMoviePage);
   const moviesData = useSelector(selectMoviesList);
+  const moviesSatus = useSelector(selectStatus);
 
   const location = useLocation();
   const history = useHistory();
@@ -44,8 +48,9 @@ const MoviesPage = () => {
       <Container>
         <Header>Popular movies</Header>
         <MovieList>
-          {moviesData
-            ? moviesData.map((movie) => (
+          {moviesSatus === "success" ? (
+            <>
+              {moviesData.map((movie) => (
                 <Movie key={movie.poster_path}>
                   <MainTile
                     id={movie.id}
@@ -59,16 +64,23 @@ const MoviesPage = () => {
                     }}
                   />
                 </Movie>
-              ))
-            : null}
+              ))}
+              <Pagination
+                currentPage={currentMoviePage}
+                firstPage={firstMoviePage}
+                previousPage={previousMoviePage}
+                nextPage={nextMoviePage}
+                lastPage={lastMoviePage}
+              />
+            </>
+          ) : moviesSatus === "loading" ? (
+            <LoaderContainer>
+              <MoonLoader color="#18181B" size={80} />
+            </LoaderContainer>
+          ) : moviesSatus === "error" ? (
+            <div>big error</div>
+          ) : null}
         </MovieList>
-        <Pagination
-          currentPage={currentMoviePage}
-          firstPage={firstMoviePage}
-          previousPage={previousMoviePage}
-          nextPage={nextMoviePage}
-          lastPage={lastMoviePage}
-        />
       </Container>
     </>
   );

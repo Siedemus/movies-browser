@@ -61,9 +61,11 @@ export const {
   setMoviePageByQuery,
 } = moviesSlice.actions;
 
-const selectMoviesState = (state) => state.movies.data;
+const selectMoviesState = (state) => state.movies;
 
-export const selectMoviesList = (state) => selectMoviesState(state).results;
+export const selectStatus = (state) => selectMoviesState(state).status;
+export const selectMoviesList = (state) =>
+  selectMoviesState(state).data.results;
 
 export const selectCurrentMoviePage = (state) => state.movies.currentPage;
 

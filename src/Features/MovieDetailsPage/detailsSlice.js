@@ -25,6 +25,7 @@ const detailsSlice = createSlice({
 
 export const { fetchDetails, setDetails, setError } = detailsSlice.actions;
 
+export const selectStatus = (state) => state.details.status;
 export const selectDetails = (state) => state.details.data;
 
 export default detailsSlice.reducer;

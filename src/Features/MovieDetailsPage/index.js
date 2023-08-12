@@ -13,10 +13,12 @@ import {
 import { Tile } from "../../Common/Tile";
 import { ScoresDetails } from "./ScoresDetails/index";
 import { fetchCredits, selectCredits } from "./creditsSlice";
-import { fetchDetails, selectDetails } from "./detailsSlice";
+import { fetchDetails, selectDetails, selectStatus } from "./detailsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { PeopleListTile } from "../../Common/TilePeople";
+import { LoaderContainer } from "../../Common/LoaderContainer/styled";
+import { MoonLoader } from "react-spinners";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -24,13 +26,14 @@ const MovieDetailsPage = () => {
   const dispatch = useDispatch();
   const credits = useSelector(selectCredits);
   const movie = useSelector(selectDetails);
+  const status = useSelector(selectStatus);
 
   useEffect(() => {
     dispatch(fetchCredits(id));
     dispatch(fetchDetails(id));
   }, [dispatch, id]);
 
-  return movie ? (
+  return status === "success" ? (
     <>
       <Wrap>
         <PosterPath
@@ -91,6 +94,12 @@ const MovieDetailsPage = () => {
         </PeopleList>
       </TileContainer>
     </>
+  ) : status === "loading" ? (
+    <LoaderContainer>
+      <MoonLoader color="#18181B" size={80} />
+    </LoaderContainer>
+  ) : status === "error" ? (
+    <div>big error</div>
   ) : null;
 };
 

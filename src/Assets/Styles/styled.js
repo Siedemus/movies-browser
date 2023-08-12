@@ -9,7 +9,7 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
 
-  &: hover {
+  &:hover {
     color: ${({ theme }) => theme.colors.waterloo};
   }
 

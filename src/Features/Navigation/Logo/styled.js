@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ReactComponent as Camera } from "../Images/camera.svg";
+import { ReactComponent as Camera } from "../../../Assets/Images/camera.svg";
 
 export const Wrapper = styled.div`
   display: flex;

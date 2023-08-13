@@ -19,6 +19,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { MoonLoader } from "react-spinners";
 import { LoaderContainer } from "../../Common/LoaderContainer/styled";
+import { ErrorPage } from "../../Common/ErrorPage";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -78,7 +79,7 @@ const MoviesPage = () => {
               <MoonLoader color="#18181B" size={80} />
             </LoaderContainer>
           ) : moviesSatus === "error" ? (
-            <div>big error</div>
+            <ErrorPage />
           ) : null}
         </MovieList>
       </Container>

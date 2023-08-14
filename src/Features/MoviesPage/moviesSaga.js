@@ -9,12 +9,12 @@ import { getMovies } from "./getMovies";
 
 function* fetchMoviesHandler() {
   try {
-    yield delay(1000)
+    yield delay(1000);
     const currentMoviePage = yield select(selectCurrentMoviePage);
     const movies = yield call(getMovies, currentMoviePage);
     yield put(setMovies(movies));
   } catch {
-    yield put(setError);
+    yield put(setError());
   }
 }
 

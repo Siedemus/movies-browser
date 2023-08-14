@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Danger } from "../../../src/Assets/Images/Danger.svg";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-import { activeClassName } from "../../Assets/Styles/styled";
 
 export const ErrorWrap = styled.div`
   margin-top: 180px;
@@ -52,33 +51,31 @@ export const ErrorInfo = styled.h2`
 export const ErrorButton = styled.div`
   width: 181px;
   height: 51px;
-  background-color: blue;
+  background-color: ${({ theme }) => theme.colors.button};
   border-radius: 5px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     width: 120px;
     height: 34px;
   }
 `;
 
-export const ErrorButtonLink = styled(NavLink).attrs(() => ({
-  activeClassNamee: activeClassName,
-}))`
+export const ErrorButtonLink = styled(NavLink).attrs()`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
+
+  &:hover {
+    text-decoration: underline;
+  }
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     font-size: 10px;
-  }
-
-  &.${activeClassName} {
-    color: ${({ theme }) => theme.colors.stormGray};
   }
 `;

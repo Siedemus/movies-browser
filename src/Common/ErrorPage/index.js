@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import {
   DangerIcon,
   ErrorButton,
+  ErrorButtonLink,
   ErrorHeader,
   ErrorInfo,
-  ErrorTextButton,
   ErrorWrap,
 } from "./styled";
 
@@ -13,7 +14,7 @@ export const ErrorPage = () => (
     <ErrorHeader>Ooops! Something went wrong...</ErrorHeader>
     <ErrorInfo>Please check your network connection and try again</ErrorInfo>
     <ErrorButton>
-      <ErrorTextButton>Back to home page</ErrorTextButton>
+      <ErrorButtonLink to="/movies">Back to home page</ErrorButtonLink>
     </ErrorButton>
   </ErrorWrap>
 );

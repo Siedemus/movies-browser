@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as Danger } from "../../../src/Assets/Images/Danger.svg";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { activeClassName } from "../../Assets/Styles/styled";
 
 export const ErrorWrap = styled.div`
   margin-top: 180px;
@@ -63,7 +65,10 @@ export const ErrorButton = styled.div`
   }
 `;
 
-export const ErrorTextButton = styled.p`
+export const ErrorButtonLink = styled(NavLink).attrs(() => ({
+  activeClassNamee: activeClassName,
+}))`
+  text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
   font-size: 14px;
   font-style: normal;
@@ -71,5 +76,9 @@ export const ErrorTextButton = styled.p`
   line-height: 19px;
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     font-size: 10px;
+  }
+
+  &.${activeClassName} {
+    color: ${({ theme }) => theme.colors.stormGray};
   }
 `;

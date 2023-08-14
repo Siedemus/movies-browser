@@ -20,6 +20,7 @@ import { fetchGenres } from "../../Common/MainTail/genresSlice";
 import { images } from "../../apiURLs";
 import { useSelector } from "react-redux";
 import { selectGenres } from "../MainTail/genresSlice";
+import noPoster from "../../Assets/Images/noPoster.png";
 
 export const Tile = ({
   title,
@@ -40,7 +41,10 @@ export const Tile = ({
 
   return (
     <TileWrap>
-      <Image src={`${images}${poster}`} alt={`${title} poster`} />
+      <Image
+        src={poster ? `${images}${poster}` : noPoster}
+        alt={`${title} poster`}
+      />
       <Content>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>

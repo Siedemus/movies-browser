@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import { ReactComponent as NoPoster } from "../../../Assets/Images/icon.svg";
-
-export const NoPerson = styled(NoPoster)``;
 
 export const ImageWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.silver};

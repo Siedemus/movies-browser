@@ -70,7 +70,7 @@ const MovieDetailsPage = () => {
                 .slice(0, 16)
                 .map((person) => (
                   <PeopleListTile
-                    id={id}
+                    id={person.id}
                     poster={person.profile_path}
                     name={person.name}
                     character={person.character}
@@ -85,7 +85,7 @@ const MovieDetailsPage = () => {
                 .slice(0, 8)
                 .map((person) => (
                   <PeopleListTile
-                    id={id}
+                    id={person.id}
                     poster={person.profile_path}
                     name={person.name}
                     character={person.job}

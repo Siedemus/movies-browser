@@ -9,6 +9,9 @@ export const detailImages_url =
 export const credits_url =
   "https://api.themoviedb.org/3/movie/{movie_id}/credits";
 
+export const detailPerson_url =
+  "https://api.themoviedb.org/3/person/{person_id}";
+
 export const getAuthorizationOption = {
   method: "GET",
   headers: {

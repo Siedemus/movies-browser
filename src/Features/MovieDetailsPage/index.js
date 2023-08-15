@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import { PeopleListTile } from "../../Common/TilePeople";
 import { LoaderContainer } from "../../Common/LoaderContainer/styled";
 import { MoonLoader } from "react-spinners";
+import { ErrorPage } from "../../Common/ErrorPage";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -99,7 +100,7 @@ const MovieDetailsPage = () => {
       <MoonLoader color="#18181B" size={80} />
     </LoaderContainer>
   ) : status === "error" ? (
-    <div>big error</div>
+    <ErrorPage />
   ) : null;
 };
 

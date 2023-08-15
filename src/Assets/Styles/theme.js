@@ -5,6 +5,7 @@ export const theme = {
     grayish: "#F5F5FA",
     white: "#FFFFFF",
     blue: "#D6E4FF",
+    button: "#0044CC",
     stormGray: "#74788B",
     waterloo: "#7E839A",
   },

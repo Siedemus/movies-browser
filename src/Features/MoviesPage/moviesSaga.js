@@ -1,4 +1,4 @@
-import { call, put, takeEvery, select, delay } from "redux-saga/effects";
+import { call, put, select, delay, throttle } from "redux-saga/effects";
 import {
   fetchMovies,
   setMovies,
@@ -6,12 +6,14 @@ import {
   selectCurrentMoviePage,
 } from "./moviesSlice";
 import { getMovies } from "./getMovies";
+import { selectQuery } from "../Navigation/Search/searchSlice";
 
 function* fetchMoviesHandler() {
   try {
-    yield delay(1000)
+    yield delay(1000);
     const currentMoviePage = yield select(selectCurrentMoviePage);
-    const movies = yield call(getMovies, currentMoviePage);
+    const searchQuery = yield select(selectQuery);
+    const movies = yield call(getMovies, currentMoviePage, searchQuery);
     yield put(setMovies(movies));
   } catch {
     yield put(setError);
@@ -19,5 +21,5 @@ function* fetchMoviesHandler() {
 }
 
 export function* moviesSaga() {
-  yield takeEvery(fetchMovies.type, fetchMoviesHandler);
+  yield throttle(300, fetchMovies.type, fetchMoviesHandler);
 }

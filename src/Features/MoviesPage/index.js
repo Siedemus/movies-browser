@@ -32,16 +32,18 @@ const MoviesPage = () => {
 
   useEffect(() => {
     dispatch(setMoviePageByQuery(parseInt(query)));
-  }, [query, dispatch]);
+  }, [query]);
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("page", currentMoviePage);
     dispatch(fetchMovies());
-    history.replace(`${location.pathname}?page=${currentMoviePage}`);
-  }, [currentMoviePage, dispatch, history, location.pathname]);
+    history.replace(`${location.pathname}?${searchParams}`);
+  }, [currentMoviePage]);
 
   useEffect(() => {
     dispatch(fetchGenres());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -51,7 +53,7 @@ const MoviesPage = () => {
           {moviesSatus === "success" ? (
             <>
               {moviesData.map((movie) => (
-                <Movie key={movie.poster_path}>
+                <Movie key={movie.id}>
                   <MainTile
                     id={movie.id}
                     poster={movie.poster_path}
@@ -65,13 +67,6 @@ const MoviesPage = () => {
                   />
                 </Movie>
               ))}
-              <Pagination
-                currentPage={currentMoviePage}
-                firstPage={firstMoviePage}
-                previousPage={previousMoviePage}
-                nextPage={nextMoviePage}
-                lastPage={lastMoviePage}
-              />
             </>
           ) : moviesSatus === "loading" ? (
             <LoaderContainer>
@@ -81,6 +76,15 @@ const MoviesPage = () => {
             <div>big error</div>
           ) : null}
         </MovieList>
+        {moviesSatus === "success" ? (
+          <Pagination
+            currentPage={currentMoviePage}
+            firstPage={firstMoviePage}
+            previousPage={previousMoviePage}
+            nextPage={nextMoviePage}
+            lastPage={lastMoviePage}
+          />
+        ) : null}
       </Container>
     </>
   );

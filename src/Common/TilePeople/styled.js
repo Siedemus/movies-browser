@@ -2,13 +2,28 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.article`
-  background-color: ${({ theme }) => theme.colors.white};
-  padding: 16px;
-  max-width: auto;
-  height: 100%;
+  margin: auto;
+  width: 208px;
+  background: ${({ theme }) => theme.colors.white};
+  height: 339px;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
-  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
+    margin: auto;
+    height: 245x;
+    max-width: 500px;
+  }
+`;
+
+export const PersonWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 export const PersonPoster = styled.img`
@@ -20,12 +35,15 @@ export const PersonName = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   font-size: 22px;
   font-weight: 500;
-  line-height: 1.3;
-  margin: 12px 0 8px;
+  line-height: 130%;
 `;
 
 export const CharacterName = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
 `;
 
 export const GetDetailsPeopleLink = styled(Link)`

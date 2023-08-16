@@ -6,11 +6,9 @@ export const PersonDetailContainer = styled.div`
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 export const PersomDetailWrap = styled.div`
-  margin: auto;
   padding-top: 56px;
 `;
 
@@ -25,9 +23,8 @@ export const FilmList = styled.li`
 
 export const FilmHeader = styled.h2`
   color: ${({ theme }) => theme.colors.black};
-
   margin-top: 64px;
-  margin-bottom: 0px;
+  margin-bottom: 32px;
   margin-left: 40px;
   font-weight: 600;
   font-size: 36px;

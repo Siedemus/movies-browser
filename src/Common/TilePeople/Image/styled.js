@@ -5,6 +5,7 @@ export const NoPerson = styled(NoPoster)``;
 
 export const ImageWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.silver};
+  margin: 16px;
   border-radius: 5px;
   display: flex;
   justify-content: center;

@@ -52,21 +52,21 @@ export const Tile = ({
           <AdditionInfo>Production:&nbsp;</AdditionInfo>
           <InfoLong>
             {" "}
-            {infoProduction.map(({ name }) => name).join(", ")}
+            {infoProduction?.map(({ name }) => name).join(", ")}
           </InfoLong>
           <InfoShort>
-            {infoProduction.map(({ iso_3166_1 }) => iso_3166_1).join(", ")}
+            {infoProduction?.map(({ iso_3166_1 }) => iso_3166_1).join(", ")}
           </InfoShort>
         </Box>
         <Box>
           <AdditionInfo>Release date:&nbsp;</AdditionInfo>
-          <Info> {infoDate.replace(/-/g, ".")}</Info>
+          <Info> {infoDate?.replace(/-/g, ".")}</Info>
         </Box>
         <Tags>
           {genres && tags ? (
-            tags.map((tag) => (
+            tags?.map((tag) => (
               <Tag key={tag}>
-                {genres.find((genre) => genre.id === tag).name}
+                {genres?.find((genre) => genre.id === tag).name}
               </Tag>
             ))
           ) : (
@@ -76,6 +76,42 @@ export const Tile = ({
         <Scores data={rate} />
       </Content>
       <Description>{filmDescription}</Description>
+    </TileWrap>
+  );
+};
+
+export const PersonDetailTile = ({
+  title,
+  dateOfBirth,
+  placeOfBirth,
+  poster,
+  biography,
+}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, [dispatch]);
+
+  return (
+    <TileWrap>
+      <Image
+        src={poster ? `${images}${poster}` : noPoster}
+        alt={`${title} poster`}
+      />
+      <Content>
+        <Title>{title}</Title>
+
+        <Box>
+          <AdditionInfo>Date of birth:&nbsp;</AdditionInfo>
+          <Info> {dateOfBirth?.replace(/-/g, ".")}</Info>
+        </Box>
+        <Box>
+          <AdditionInfo>Place of birth:&nbsp;</AdditionInfo>
+          <Info> {placeOfBirth}</Info>
+        </Box>
+      </Content>
+      <Description>{biography}</Description>
     </TileWrap>
   );
 };

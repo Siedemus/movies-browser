@@ -68,6 +68,8 @@ export const selectMoviesList = (state) =>
   selectMoviesState(state).data.results;
 export const selectTotalPages = (state) =>
   selectMoviesState(state).data.total_pages;
+export const selectTotalResults = (state) =>
+  selectMoviesState(state).data.total_results;
 
 export const selectCurrentMoviePage = (state) => state.movies.currentPage;
 

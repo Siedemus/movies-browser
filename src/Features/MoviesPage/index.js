@@ -12,6 +12,8 @@ import {
   lastMoviePage,
   setMoviePageByQuery,
   selectStatus,
+  selectTotalResults,
+  selectTotalPages,
 } from "./moviesSlice";
 import { fetchGenres } from "../../Common/MainTail/genresSlice";
 import { Pagination } from "../../Common/Pagination";
@@ -20,12 +22,16 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { MoonLoader } from "react-spinners";
 import { LoaderContainer } from "../../Common/LoaderContainer/styled";
 import { ErrorPage } from "../../Common/ErrorPage";
+import { selectQuery } from "../Navigation/Search/searchSlice";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
   const currentMoviePage = useSelector(selectCurrentMoviePage);
   const moviesData = useSelector(selectMoviesList);
   const moviesSatus = useSelector(selectStatus);
+  const totalResults = useSelector(selectTotalResults);
+  const searchQuery = useSelector(selectQuery);
+  const totalPages = useSelector(selectTotalPages);
 
   const location = useLocation();
   const history = useHistory();
@@ -49,7 +55,13 @@ const MoviesPage = () => {
   return (
     <>
       <Container>
-        <Header>Popular movies</Header>
+        <Header>
+          {searchQuery !== ""
+            ? totalResults
+              ? `Search results for “${searchQuery}” (${totalResults})`
+              : `Sorry, there are no results for “${searchQuery}”`
+            : "Popular Movies"}
+        </Header>
         <MovieList>
           {moviesSatus === "success" ? (
             <>
@@ -77,7 +89,7 @@ const MoviesPage = () => {
             <ErrorPage />
           ) : null}
         </MovieList>
-        {moviesSatus === "success" ? (
+        {moviesSatus === "success" && totalResults && totalPages > 1 ? (
           <Pagination
             currentPage={currentMoviePage}
             firstPage={firstMoviePage}

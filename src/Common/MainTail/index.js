@@ -33,7 +33,7 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
               {genres && tags ? (
                 tags.map((tag) => (
                   <Tag key={tag}>
-                    {genres.find((genre) => genre.id === tag).name}
+                    {genres.find((genre) => genre.id === tag)?.name}
                   </Tag>
                 ))
               ) : (

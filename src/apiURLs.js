@@ -12,6 +12,9 @@ export const credits_url =
 export const detailPerson_url =
   "https://api.themoviedb.org/3/person/{person_id}";
 
+export const personCredits_url =
+  "https://api.themoviedb.org/3/person/{person_id}/combined_credits";
+
 export const getAuthorizationOption = {
   method: "GET",
   headers: {

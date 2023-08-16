@@ -6,6 +6,7 @@ import genresSlice from "./Common/MainTail/genresSlice";
 import detailsSlice from "./Features/MovieDetailsPage/detailsSlice";
 import creditsSlice from "./Features/MovieDetailsPage/creditsSlice";
 import personSlice from "./Features/PeopleDetailPage/personSlice";
+import personCreditsSlice from "./Features/PeopleDetailPage/personCreditsSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,6 +17,7 @@ const store = configureStore({
     details: detailsSlice,
     credits: creditsSlice,
     person: personSlice,
+    personCredits: personCreditsSlice,
   },
   middleware: [sagaMiddleware],
 });

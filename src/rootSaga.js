@@ -4,6 +4,7 @@ import { genresSaga } from "./Common/MainTail/genreSaga";
 import { detailsSaga } from "./Features/MovieDetailsPage/detailsSaga";
 import { creditsSaga } from "./Features/MovieDetailsPage/creditsSaga";
 import { personSaga } from "./Features/PeopleDetailPage/personSaga";
+import { personCreditsSaga } from "./Features/PeopleDetailPage/personCreditsSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -12,5 +13,6 @@ export default function* rootSaga() {
     detailsSaga(),
     creditsSaga(),
     personSaga(),
+    personCreditsSaga(),
   ]);
 }

@@ -5,9 +5,9 @@ export const genres = "https://api.themoviedb.org/3/genre/movie/list";
 export const details_url = "https://api.themoviedb.org/3/movie/";
 export const detailImages_url =
   "https://api.themoviedb.org/3/collection/{collection_id}/images";
-
 export const credits_url =
   "https://api.themoviedb.org/3/movie/{movie_id}/credits";
+export const search = "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US"
 
 export const getAuthorizationOption = {
   method: "GET",

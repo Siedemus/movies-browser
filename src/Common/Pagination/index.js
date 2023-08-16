@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Text,
   Button,
@@ -7,6 +7,7 @@ import {
   Important,
   ButtonText,
 } from "./styled";
+import { selectTotalPages } from "../../Features/MoviesPage/moviesSlice";
 
 export const Pagination = ({
   currentPage,
@@ -16,6 +17,7 @@ export const Pagination = ({
   lastPage,
 }) => {
   const dispatch = useDispatch();
+  const totalPages = useSelector(selectTotalPages);
 
   return (
     <Container>
@@ -30,13 +32,23 @@ export const Pagination = ({
       </Button>
       <Text>
         Page <Important>{currentPage}</Important> of
-        <Important> 500</Important>
+        <Important> {totalPages > 500 ? "500" : totalPages}</Important>
       </Text>
-      <Button next={+true} onClick={() => dispatch(nextPage())}>
+      <Button
+        next={+true}
+        onClick={() =>
+          dispatch(nextPage(totalPages > 500 ? "500" : totalPages))
+        }
+      >
         <ButtonText>Next</ButtonText>
         <Vector next={+true} alt="next page" />
       </Button>
-      <Button next={+true} onClick={() => dispatch(lastPage())}>
+      <Button
+        next={+true}
+        onClick={() =>
+          dispatch(lastPage(totalPages > 500 ? "500" : totalPages))
+        }
+      >
         <ButtonText>Last</ButtonText>
         <Vector next={+true} mobile={+true} alt="last page" />
         <Vector next={+true} alt="last page" />

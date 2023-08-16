@@ -28,13 +28,13 @@ const moviesSlice = createSlice({
         state.currentPage--;
       }
     },
-    nextMoviePage: (state) => {
-      if (state.currentPage !== 500) {
+    nextMoviePage: (state, { payload }) => {
+      if (state.currentPage !== payload) {
         state.currentPage++;
       }
     },
-    lastMoviePage: (state) => {
-      state.currentPage = 500;
+    lastMoviePage: (state, { payload }) => {
+      state.currentPage = payload;
     },
     setMoviePageByQuery: (state, { payload }) => {
       if (isNaN(payload)) {
@@ -67,6 +67,8 @@ export const selectStatus = (state) => selectMoviesState(state).status;
 
 export const selectMoviesList = (state) =>
   selectMoviesState(state).data.results;
+export const selectTotalPages = (state) =>
+  selectMoviesState(state).data.total_pages;
 
 export const selectCurrentMoviePage = (state) => state.movies.currentPage;
 

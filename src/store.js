@@ -6,6 +6,8 @@ import genresSlice from "./Common/MainTail/genresSlice";
 import detailsSlice from "./Features/MovieDetailsPage/detailsSlice";
 import creditsSlice from "./Features/MovieDetailsPage/creditsSlice";
 import peopleSlice from "./Features/PeoplePage/peopleSlice";
+import searchSlice from "./Features/Navigation/Search/searchSlice";
+
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,6 +18,8 @@ const store = configureStore({
     details: detailsSlice,
     credits: creditsSlice,
     people: peopleSlice,
+    search: searchSlice,
+
   },
   middleware: [sagaMiddleware],
 });

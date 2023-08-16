@@ -1,4 +1,4 @@
-import { delay, call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
 import { fetchDetails, setDetails, setError } from "./detailsSlice";
 import { getMovieDetails } from "./getMovieDetails";
 

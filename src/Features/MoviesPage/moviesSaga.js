@@ -16,7 +16,7 @@ function* fetchMoviesHandler() {
     const movies = yield call(getMovies, currentMoviePage, searchQuery);
     yield put(setMovies(movies));
   } catch {
-    yield put(setError);
+    yield put(setError());
   }
 }
 

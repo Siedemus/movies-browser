@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const PersonDetailContainer = styled.div`
+  max-width: 1400px;
+  margin: 30px auto 130px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const PersomDetailWrap = styled.div`
   margin: auto;
   padding-top: 56px;

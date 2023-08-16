@@ -8,6 +8,7 @@ import { ErrorPage } from "../../Common/ErrorPage";
 import {
   FilmHeader,
   FilmList,
+  PersonDetailContainer,
   PersomDetailWrap as PersonDetailWrap,
 } from "./styled";
 import { PersonDetailTile } from "../../Common/Tile";
@@ -27,7 +28,7 @@ const PeopleDetailPage = () => {
   }, [dispatch, id]);
 
   return status === "success" ? (
-    <>
+    <PersonDetailContainer>
       <PersonDetailWrap key={person.profile_path}>
         <PersonDetailTile
           id={person.id}
@@ -75,7 +76,7 @@ const PeopleDetailPage = () => {
             ))
           : null}
       </FilmList>
-    </>
+    </PersonDetailContainer>
   ) : status === "loading" ? (
     <LoaderContainer>
       <MoonLoader color="#18181B" size={80} />

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainTileContainer = styled.div`
   margin: auto;
-  width: 324px;
+  max-width: 324px;
   background: ${({ theme }) => theme.colors.white};
   height: 730px;
   border-radius: 5px;
@@ -20,11 +20,11 @@ export const MainTileContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     margin: auto;
-    height: 210px;
+    max-height: 210px;
     max-width: 500px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    // justify-content: space-between;
   }
 `;
 

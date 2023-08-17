@@ -56,13 +56,6 @@ const PeoplePage = () => {
                 />
               </ItemPeopleList>
             ))}
-            <Pagination
-              currentPage={currentPeoplePage}
-              firstPage={firstPeoplePage}
-              previousPage={previousPeoplePage}
-              nextPage={nextPeoplePage}
-              lastPage={lastPeoplePage}
-            />
           </>
         ) : peopleStatus === "loading" ? (
           <LoaderContainer>
@@ -72,6 +65,13 @@ const PeoplePage = () => {
           <ErrorPage />
         ) : null}
       </PeopleList>
+      <Pagination
+        currentPage={currentPeoplePage}
+        firstPage={firstPeoplePage}
+        previousPage={previousPeoplePage}
+        nextPage={nextPeoplePage}
+        lastPage={lastPeoplePage}
+      />
     </Container>
   );
 };

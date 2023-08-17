@@ -20,17 +20,15 @@ export const Header = styled.h2`
 `;
 
 export const PeopleList = styled.ul`
-  padding: 0px;
-  list-style: none;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 24px;
-  justify-content: center;
+  padding: 0;
+  margin: 0 0 24px 0;
+  list-style: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.desktopMax}) {
     grid-template-columns: repeat(5, 1fr);
-    padding-right: 16px;
-    padding-left: 16px;
     grid-gap: 16px;
   }
 
@@ -38,7 +36,7 @@ export const PeopleList = styled.ul`
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.medium}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     grid-template-columns: repeat(2, 1fr);
   }
 

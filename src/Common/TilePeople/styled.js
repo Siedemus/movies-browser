@@ -2,21 +2,26 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.article`
-  margin: auto;
-  width: 208px;
   background: ${({ theme }) => theme.colors.white};
-  height: 339px;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
+  width: 100%;
+  height: 100%;
+  padding: 16px;
 
-  display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  /* display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: start; */
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
-    margin: auto;
+    padding: 8px;
+    /* margin: auto;
     height: 245x;
-    max-width: 500px;
+    max-width: 500px; */
   }
 `;
 

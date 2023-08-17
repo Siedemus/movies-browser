@@ -12,6 +12,12 @@ export const MainTileContainer = styled.div`
   flex-direction: column;
   justify-content: start;
 
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(105%);
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     margin: auto;
     height: 210px;

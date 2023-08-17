@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const TileWrap = styled.article`
   margin: auto;
   max-width: 1368px;
-  margin-left: 40px;
-  margin-right: 40px;
   background: ${({ theme }) => theme.colors.white};
   padding: 40px;
   border-radius: 5px;
@@ -17,8 +15,6 @@ export const TileWrap = styled.article`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     margin: auto;
-    margin-left: 40px;
-    margin-right: 40px;
     padding: 16px;
     display: grid;
     grid-template-columns: auto 1fr;

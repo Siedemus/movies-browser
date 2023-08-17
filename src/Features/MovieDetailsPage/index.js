@@ -66,7 +66,7 @@ const MovieDetailsPage = () => {
         <PeopleHeader>Cast</PeopleHeader>
         <PeopleList>
           {credits
-            ? credits.cast
+            ? credits?.cast
                 .slice(0, 16)
                 .map((person) => (
                   <PeopleListTile
@@ -81,7 +81,7 @@ const MovieDetailsPage = () => {
         <PeopleHeader>Crew</PeopleHeader>
         <PeopleList>
           {credits
-            ? credits.crew
+            ? credits?.crew
                 .slice(0, 8)
                 .map((person) => (
                   <PeopleListTile

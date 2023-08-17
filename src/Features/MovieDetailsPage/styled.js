@@ -57,6 +57,7 @@ export const Container = styled.div`
 export const TileContainer = styled.div`
   max-width: 1368px;
   margin: auto;
+  padding: 40px;
 `;
 
 export const Header = styled.h2`
@@ -74,12 +75,29 @@ export const Header = styled.h2`
 `;
 
 export const PeopleList = styled.ul`
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 24px;
   padding: 0;
+  margin: 0 0 24px 0;
+  list-style: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.desktopMax}) {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipod}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const PeopleHeader = styled.h2`

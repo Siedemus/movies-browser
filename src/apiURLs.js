@@ -9,6 +9,8 @@ export const credits_url =
   "https://api.themoviedb.org/3/movie/{movie_id}/credits";
 export const search = "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US"
 
+export const people_url = "https://api.themoviedb.org/3/person/popular";
+
 export const getAuthorizationOption = {
   method: "GET",
   headers: {

@@ -44,9 +44,9 @@ const PeoplePage = () => {
   return (
     <Container>
       <Header>Popular People</Header>
-      <PeopleList>
-        {peopleStatus === "success" ? (
-          <>
+      {peopleStatus === "success" ? (
+        <>
+          <PeopleList>
             {popularPeople.map((people) => (
               <ItemPeopleList key={people.id}>
                 <PeopleListTile
@@ -56,22 +56,22 @@ const PeoplePage = () => {
                 />
               </ItemPeopleList>
             ))}
-            <Pagination
-              currentPage={currentPeoplePage}
-              firstPage={firstPeoplePage}
-              previousPage={previousPeoplePage}
-              nextPage={nextPeoplePage}
-              lastPage={lastPeoplePage}
-            />
-          </>
-        ) : peopleStatus === "loading" ? (
-          <LoaderContainer>
-            <MoonLoader color="#18181B" size={80} />
-          </LoaderContainer>
-        ) : peopleStatus === "error" ? (
-          <ErrorPage />
-        ) : null}
-      </PeopleList>
+          </PeopleList>
+          <Pagination
+            currentPage={currentPeoplePage}
+            firstPage={firstPeoplePage}
+            previousPage={previousPeoplePage}
+            nextPage={nextPeoplePage}
+            lastPage={lastPeoplePage}
+          />
+        </>
+      ) : peopleStatus === "loading" ? (
+        <LoaderContainer>
+          <MoonLoader color="#18181B" size={80} />
+        </LoaderContainer>
+      ) : peopleStatus === "error" ? (
+        <ErrorPage />
+      ) : null}
     </Container>
   );
 };

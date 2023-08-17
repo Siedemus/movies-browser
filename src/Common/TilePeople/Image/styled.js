@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ImageWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.silver};
+
   border-radius: 5px;
   display: flex;
   justify-content: center;

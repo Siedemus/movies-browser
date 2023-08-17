@@ -11,6 +11,12 @@ export const search = "https://api.themoviedb.org/3/search/movie?include_adult=f
 
 export const people_url = "https://api.themoviedb.org/3/person/popular";
 
+export const detailPerson_url =
+  "https://api.themoviedb.org/3/person/{person_id}";
+
+export const personCredits_url =
+  "https://api.themoviedb.org/3/person/{person_id}/combined_credits";
+
 export const getAuthorizationOption = {
   method: "GET",
   headers: {

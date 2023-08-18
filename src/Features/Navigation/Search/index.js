@@ -12,10 +12,6 @@ import {
 
 export const Search = () => {
   const location = useLocation();
-  const history = useHistory();
-  const dispatch = useDispatch();
-  const query = useSelector(selectQuery);
-  const searchParams = new URLSearchParams(location.search);
 
   useManualSearchParamChange(
     location,
@@ -34,6 +30,31 @@ export const Search = () => {
     fetchPeopleListLoad
   );
 
+  const placeholderText = location.pathname.includes("/movies")
+    ? "Search for movies..."
+    : "Search for people...";
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const query = useSelector(selectQuery);
+  const searchParams = new URLSearchParams(location.search);
+
+  useManualSearchParamChange(
+    location,
+    dispatch,
+    query,
+    onSearchChange,
+    searchParams
+  );
+  useReplaceSearchParam(
+    location,
+    query,
+    history,
+    dispatch,
+    fetchMovies,
+    searchParams
+  );
+
   const onInputChange = ({ target }) => {
     if (target.value.trim() === "") {
       dispatch(onSearchChange(""));
@@ -46,7 +67,7 @@ export const Search = () => {
     <>
       <Wrapper>
         <Input
-          placeholder="Search for movies..."
+          placeholder={placeholderText}
           onChange={(e) => onInputChange(e)}
           value={query}
         />

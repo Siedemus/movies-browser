@@ -98,6 +98,9 @@ export const PeopleList = styled.ul`
   @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
     grid-template-columns: repeat(2, 1fr);
   }
+  @media (max-width: 300px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const PeopleHeader = styled.h2`

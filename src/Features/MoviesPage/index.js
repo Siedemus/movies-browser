@@ -48,6 +48,10 @@ const MoviesPage = () => {
     history.replace(`${location.pathname}?${searchParams}`);
   }, [currentMoviePage]);
 
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, []);
+
   return (
     <>
       <Container>

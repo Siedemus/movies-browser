@@ -48,10 +48,6 @@ const MoviesPage = () => {
     history.replace(`${location.pathname}?${searchParams}`);
   }, [currentMoviePage]);
 
-  useEffect(() => {
-    dispatch(fetchGenres());
-  }, []);
-
   return (
     <>
       <Container>
@@ -96,6 +92,7 @@ const MoviesPage = () => {
             previousPage={previousMoviePage}
             nextPage={nextMoviePage}
             lastPage={lastMoviePage}
+            totalPages={totalPages}
           />
         ) : null}
       </Container>

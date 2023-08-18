@@ -1,4 +1,4 @@
-import { call, put, takeEvery, select, delay } from "redux-saga/effects";
+import { call, put, select, delay, throttle } from "redux-saga/effects";
 import {
   fetchPeopleListError,
   fetchPeopleListLoad,
@@ -21,5 +21,5 @@ function* fetchPeopleHandler() {
 }
 
 export function* peopleSaga() {
-  yield takeEvery(fetchPeopleListLoad.type, fetchPeopleHandler);
+  yield throttle(300, fetchPeopleListLoad.type, fetchPeopleHandler);
 }

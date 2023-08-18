@@ -2,6 +2,7 @@ import { Wrapper, Input } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import { onSearchChange, selectQuery } from "./searchSlice";
 import { fetchMovies } from "../../MoviesPage/moviesSlice";
+import { fetchPeopleListLoad } from "../../PeoplePage/peopleSlice";
 import { useManualSearchParamChange } from "./useManualSearchParamChange";
 import { useReplaceSearchParam } from "./useReplaceSearchParam";
 import {
@@ -29,7 +30,8 @@ export const Search = () => {
     history,
     dispatch,
     fetchMovies,
-    searchParams
+    searchParams,
+    fetchPeopleListLoad
   );
 
   const onInputChange = ({ target }) => {

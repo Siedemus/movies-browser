@@ -24,6 +24,8 @@ import {
 } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
 import { selectQuery } from "../Navigation/Search/searchSlice";
+import { NoResults } from "../../Common/NoResults/styled";
+import noResultsPoster from "../../Assets/Images/noResults.svg"
 
 const PeoplePage = () => {
   const dispatch = useDispatch();
@@ -58,7 +60,7 @@ const PeoplePage = () => {
             : `Sorry, there are no results for “${searchQuery}”`
           : "Popular Movies"}
       </Header>
-      {peopleStatus === "success" ? (
+      {peopleStatus === "success" && totalResults ? (
         <PeopleList>
           {popularPeople.map((people) => (
             <ItemPeopleList key={people.id}>
@@ -76,6 +78,8 @@ const PeoplePage = () => {
         </LoaderContainer>
       ) : peopleStatus === "error" ? (
         <ErrorPage />
+      ) : peopleStatus === "success" && !totalResults ? (
+        <NoResults src={noResultsPoster}/>
       ) : null}
       {peopleStatus === "success" && totalResults && totalPages > 1 ? (
         <Pagination

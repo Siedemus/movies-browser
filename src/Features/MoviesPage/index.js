@@ -23,6 +23,8 @@ import { MoonLoader } from "react-spinners";
 import { LoaderContainer } from "../../Common/LoaderContainer/styled";
 import { ErrorPage } from "../../Common/ErrorPage";
 import { selectQuery } from "../Navigation/Search/searchSlice";
+import { NoResults } from "../../Common/NoResults/styled";
+import noResultsPoster from "../../Assets/Images/noResults.svg";
 
 const MoviesPage = () => {
   const dispatch = useDispatch();
@@ -63,7 +65,7 @@ const MoviesPage = () => {
             : "Popular Movies"}
         </Header>
         <MovieList>
-          {moviesSatus === "success" ? (
+          {moviesSatus === "success" && totalResults ? (
             <>
               {moviesData.map((movie) => (
                 <Movie key={movie.id}>
@@ -87,6 +89,8 @@ const MoviesPage = () => {
             </LoaderContainer>
           ) : moviesSatus === "error" ? (
             <ErrorPage />
+          ) : !totalResults ? (
+            <NoResults src={noResultsPoster} />
           ) : null}
         </MovieList>
         {moviesSatus === "success" && totalResults && totalPages > 1 ? (

@@ -23,7 +23,7 @@ export const NavigationWrapper = styled.nav`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.ipod}) {
     flex-wrap: wrap;
-    padding: 0 16px;
+    padding: 0 6px;
     justify-content: space-between;
   }
 `;
@@ -46,10 +46,10 @@ export const List = styled.ul`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
-    padding-right: 16px;
+    padding-right: 0px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.small}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     padding-left: 16px;
   }
 `;

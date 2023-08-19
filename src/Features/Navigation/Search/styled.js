@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.ipod}) {
     padding-left: 0;
     padding-top: 6px;
+    padding-right: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {

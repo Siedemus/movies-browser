@@ -10,10 +10,9 @@ import {
   MainTailBox,
 } from "./styled";
 import { MainTailScores } from "./MainTailScores/index";
-import { images } from "../../apiURLs";
 import { useSelector } from "react-redux";
 import { selectGenres } from "./genresSlice";
-import noPoster from "../../Assets/Images/noPoster.png";
+import { MovieImage } from "./MovieImage";
 
 export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
   const genres = useSelector(selectGenres);
@@ -21,10 +20,7 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
   return (
     <StyledNavLink to={`/movies/${id}`}>
       <MainTileContainer>
-        <Image
-          src={poster ? `${images}${poster}` : noPoster}
-          alt={`${title} poster`}
-        />
+        <MovieImage poster={poster} />
         <MainTailBox>
           <Content>
             <MainTileTitle>{title}</MainTileTitle>

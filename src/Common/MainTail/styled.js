@@ -24,7 +24,6 @@ export const MainTileContainer = styled.div`
     max-width: 500px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
   }
 `;
 
@@ -33,16 +32,6 @@ export const MainTailBox = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-`;
-
-export const Image = styled.img`
-  border-radius: 21px;
-  padding: 16px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
-    padding: 16px;
-    margin-bottom: 0px;
-  }
 `;
 
 export const MainTileTitle = styled.header`

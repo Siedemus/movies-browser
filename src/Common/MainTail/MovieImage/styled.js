@@ -13,6 +13,7 @@ export const Poster = styled.div.attrs(
   border-radius: 5px;
   inset: 0;
   transition: transform 0.5s ease;
+  background-size: contain;
 `;
 
 export const MoviePosterWrap = styled.div`
@@ -21,15 +22,15 @@ export const MoviePosterWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 10 /45;
-  background-repeat: no-repeat;
+  aspect-ratio: 2/3;
+
   position: relative;
   overflow: hidden;
   cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     margin: 8px 16px 8px 8px;
-    aspect-ratio: 2 /3;
-    overflow: inherit;
+    max-height: 100%;
+    min-height: 169px;
   }
 `;

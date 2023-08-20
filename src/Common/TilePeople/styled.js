@@ -10,7 +10,7 @@ export const Wrapper = styled.article`
   padding: 16px;
 
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: repeat (2, 1fr);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   /* display: flex;

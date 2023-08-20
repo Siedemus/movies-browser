@@ -42,12 +42,12 @@ export const FilmHeader = styled.h2`
   color: ${({ theme }) => theme.colors.black};
   margin-top: 64px;
   margin-bottom: 32px;
-  margin-left: 40px;
   font-weight: 600;
   font-size: 36px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     font-size: 20px;
-    margin-bottom: 4px;
+    margin-top: 21px;
+    margin-bottom: 12px;
   }
 `;

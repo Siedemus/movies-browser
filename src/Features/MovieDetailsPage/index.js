@@ -36,21 +36,23 @@ const MovieDetailsPage = () => {
 
   return status === "success" ? (
     <>
-      <Wrap>
-        <PosterPath
-          src={`${poster_path}${movie.backdrop_path}`}
-          alt={`${movie.title}`}
-        >
-          <Panel>
-            <Container>
-              <Header>{movie.original_title}</Header>
-              <ScoresDetails
-                data={{ score: movie.vote_average, votes: movie.vote_count }}
-              />
-            </Container>
-          </Panel>
-        </PosterPath>
-      </Wrap>
+      {movie.backdrop_path ? (
+        <Wrap>
+          <PosterPath
+            src={`${poster_path}${movie.backdrop_path}`}
+            alt={`${movie.title}`}
+          >
+            <Panel>
+              <Container>
+                <Header>{movie.original_title}</Header>
+                <ScoresDetails
+                  data={{ score: movie.vote_average, votes: movie.vote_count }}
+                />
+              </Container>
+            </Panel>
+          </PosterPath>
+        </Wrap>
+      ) : null}
       <TileContainer key={movie.poster_path}>
         <Tile
           id={movie.id}

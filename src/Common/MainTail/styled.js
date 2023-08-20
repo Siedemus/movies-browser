@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const MainTileContainer = styled.div`
   margin: auto;
-  width: 324px;
+  width: 100%;
   background: ${({ theme }) => theme.colors.white};
-  height: 730px;
+  height: 100%;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
+  display: grid;
+  grid-template-rows: auto 1fr;
 
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 
@@ -20,10 +19,9 @@ export const MainTileContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     margin: auto;
-    height: 210px;
-    max-width: 500px;
-    display: flex;
-    flex-direction: row;
+    max-height: 300px;
+    width: 100%;
+    grid-template-columns: auto 1fr;
   }
 `;
 
@@ -32,6 +30,19 @@ export const MainTailBox = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  padding: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
+    height: 200px;
+    padding: 16px;
+    margin-bottom: 0px;
+  }
 `;
 
 export const MainTileTitle = styled.header`

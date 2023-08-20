@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const NavigationContainer = styled.div`
-  background: ${({ theme }) => theme.colors.black};
+  background: ${({ theme }) => theme.colors.blackyblack};
   color: ${({ theme }) => theme.colors.white};
   min-height: 94px;
   width: 100%;

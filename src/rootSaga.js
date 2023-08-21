@@ -8,5 +8,13 @@ import { personCreditsSaga } from "./Features/PeopleDetailPage/personCreditsSaga
 import { peopleSaga } from "./Features/PeoplePage/peopleSaga";
 
 export default function* rootSaga() {
-  yield all([moviesSaga(), genresSaga(), detailsSaga(), creditsSaga(), peopleSaga(),  personSaga(), personCreditsSaga()]);
+  yield all([
+    moviesSaga(),
+    genresSaga(),
+    detailsSaga(),
+    creditsSaga(),
+    peopleSaga(),
+    personSaga(),
+    personCreditsSaga(),
+  ]);
 }

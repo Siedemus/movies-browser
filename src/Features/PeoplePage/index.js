@@ -25,7 +25,7 @@ import {
 import { useEffect } from "react";
 import { selectQuery } from "../Navigation/Search/searchSlice";
 import { NoResults } from "../../Common/NoResults/styled";
-import noResultsPoster from "../../Assets/Images/noResults.svg"
+import noResultsPoster from "../../Assets/Images/noResults.svg";
 
 const PeoplePage = () => {
   const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const PeoplePage = () => {
       ) : peopleStatus === "error" ? (
         <ErrorPage />
       ) : peopleStatus === "success" && !totalResults ? (
-        <NoResults src={noResultsPoster}/>
+        <NoResults src={noResultsPoster} />
       ) : null}
       {peopleStatus === "success" && totalResults && totalPages > 1 ? (
         <Pagination

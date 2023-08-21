@@ -20,13 +20,19 @@ export const Pagination = ({
 
   return (
     <Container>
-      <Button onClick={() => dispatch(firstPage())}>
-        <Vector alt="first page" />
-        <Vector alt="first page" mobile={+true} />
+      <Button
+        onClick={() => dispatch(firstPage())}
+        disabled={currentPage === 1 ? true : false}
+      >
+        <Vector alt="first page" gray={+true} />
+        <Vector alt="first page" mobile={+true} gray={+true} />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button onClick={() => dispatch(previousPage())}>
-        <Vector alt="previous page" />
+      <Button
+        onClick={() => dispatch(previousPage())}
+        disabled={currentPage === 1 ? true : false}
+      >
+        <Vector alt="previous page" gray={+true} />
         <ButtonText>Previous</ButtonText>
       </Button>
       <Text>
@@ -38,11 +44,13 @@ export const Pagination = ({
         onClick={() =>
           dispatch(nextPage(totalPages > 500 ? "500" : totalPages))
         }
+        disabled={currentPage === totalPages ? true : false}
       >
         <ButtonText>Next</ButtonText>
         <Vector next={+true} alt="next page" />
       </Button>
       <Button
+        disabled={currentPage === totalPages ? true : false}
         next={+true}
         onClick={() =>
           dispatch(lastPage(totalPages > 500 ? "500" : totalPages))

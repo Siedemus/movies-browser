@@ -1,25 +1,18 @@
 export const images = "https://image.tmdb.org/t/p/w300";
-export const poster_path = "https://image.tmdb.org/t/p/w1280";
+export const posterPath = "https://image.tmdb.org/t/p/w1280";
 export const movies = "https://api.themoviedb.org/3/discover/movie";
 export const genres = "https://api.themoviedb.org/3/genre/movie/list";
-export const details_url = "https://api.themoviedb.org/3/movie/";
-export const detailImages_url =
-  "https://api.themoviedb.org/3/collection/{collection_id}/images";
-export const credits_url =
+export const detailsUrl = "https://api.themoviedb.org/3/movie/";
+export const creditsUrl =
   "https://api.themoviedb.org/3/movie/{movie_id}/credits";
 export const searchMovie =
   "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US";
-
-export const people_url = "https://api.themoviedb.org/3/person/popular";
-
+export const peopleUrl = "https://api.themoviedb.org/3/person/popular";
 export const searchPeople = "https://api.themoviedb.org/3/search/person?";
-
-export const detailPerson_url =
+export const detailPersonUrl =
   "https://api.themoviedb.org/3/person/{person_id}";
-
-export const personCredits_url =
+export const personCreditsUrl =
   "https://api.themoviedb.org/3/person/{person_id}/combined_credits";
-
 export const getAuthorizationOption = {
   method: "GET",
   headers: {

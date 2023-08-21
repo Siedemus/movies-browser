@@ -11,7 +11,7 @@ import {
   PersonDetailContainer,
   PersomDetailWrap as PersonDetailWrap,
 } from "./styled";
-import { PersonDetailTile } from "../../Common/Tile";
+import { PersonDetailTile } from "../../Common/PersonDetailTail";
 import { fetchPersonCredits, selectPersonCredits } from "./personCreditsSlice";
 import { MainTile } from "../../Common/MainTail";
 
@@ -25,7 +25,7 @@ const PeopleDetailPage = () => {
   useEffect(() => {
     dispatch(fetchPerson(id));
     dispatch(fetchPersonCredits(id));
-  }, [dispatch, id]);
+  }, [id]);
 
   return status === "success" ? (
     <PersonDetailContainer>

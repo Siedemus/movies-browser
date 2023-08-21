@@ -1,4 +1,4 @@
-import { poster_path } from "../../apiURLs";
+import { posterPath } from "../../apiURLs";
 import { useParams } from "react-router-dom";
 import {
   Panel,
@@ -32,14 +32,14 @@ const MovieDetailsPage = () => {
   useEffect(() => {
     dispatch(fetchCredits(id));
     dispatch(fetchDetails(id));
-  }, [dispatch, id]);
+  }, [id]);
 
   return status === "success" ? (
     <>
       {movie.backdrop_path ? (
         <Wrap>
           <PosterPath
-            src={`${poster_path}${movie.backdrop_path}`}
+            src={`${posterPath}${movie.backdrop_path}`}
             alt={`${movie.title}`}
           >
             <Panel>

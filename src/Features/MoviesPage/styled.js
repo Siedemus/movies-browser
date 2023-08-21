@@ -24,12 +24,25 @@ export const Header = styled.h2`
 `;
 
 export const MovieList = styled.ul`
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 24px;
   padding: 0;
+  margin: 0 0 24px 0;
+  list-style: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.desktopMax}) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.ipod}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const Movie = styled.li``;

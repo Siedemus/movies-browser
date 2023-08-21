@@ -8,7 +8,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: 600px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     margin-bottom: 31px;
   }
 `;

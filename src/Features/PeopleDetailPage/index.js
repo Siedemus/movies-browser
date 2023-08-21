@@ -11,7 +11,7 @@ import {
   PersonDetailContainer,
   PersomDetailWrap as PersonDetailWrap,
 } from "./styled";
-import { PersonDetailTile } from "../../Common/PersonDetailTail";
+import { PersonDetailTile } from "../../Common/PersonDetailTile";
 import { fetchPersonCredits, selectPersonCredits } from "./personCreditsSlice";
 import { MainTile } from "../../Common/MainTile";
 

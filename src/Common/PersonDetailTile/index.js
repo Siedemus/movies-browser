@@ -12,7 +12,7 @@ import {
 } from "./styled";
 import { useEffect } from "react";
 import noPoster from "../../Assets/Images/noPoster.png";
-import { fetchGenres } from "../MainTail/genresSlice";
+import { fetchGenres } from "../MainTile/genresSlice";
 
 export const PersonDetailTile = ({
   title,

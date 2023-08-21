@@ -1,6 +1,4 @@
 import { getAuthorizationOption, peopleUrl, searchPeople } from "../../apiURLs";
-  searchPeople,
-} from "../../apiURLs";
 
 export const getPopularPeople = async (currentPage, searchQuery) => {
   let apiLink;

@@ -13,15 +13,8 @@ export const Wrapper = styled.article`
   grid-template-rows: repeat (2, 1fr);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 
-  /* display: flex;
-  flex-direction: column;
-  justify-content: start; */
-
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     padding: 8px;
-    /* margin: auto;
-    height: 245x;
-    max-width: 500px; */
   }
 `;
 

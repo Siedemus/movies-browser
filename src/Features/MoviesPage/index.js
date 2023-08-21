@@ -64,35 +64,33 @@ const MoviesPage = () => {
               : `Sorry, there are no results for “${searchQuery}”`
             : "Popular Movies"}
         </Header>
-        <MovieList>
-          {moviesSatus === "success" && totalResults ? (
-            <>
-              {moviesData.map((movie) => (
-                <Movie key={movie.id}>
-                  <MainTile
-                    id={movie.id}
-                    poster={movie.poster_path}
-                    title={movie.title}
-                    subtitle={movie.release_date.slice(0, 4)}
-                    tags={movie.genre_ids}
-                    rate={{
-                      score: movie.vote_average,
-                      votes: movie.vote_count,
-                    }}
-                  />
-                </Movie>
-              ))}
-            </>
-          ) : moviesSatus === "loading" ? (
-            <LoaderContainer>
-              <MoonLoader color="#18181B" size={80} />
-            </LoaderContainer>
-          ) : moviesSatus === "error" ? (
-            <ErrorPage />
-          ) : !totalResults ? (
-            <NoResults src={noResultsPoster} />
-          ) : null}
-        </MovieList>
+        {moviesSatus === "success" && totalResults ? (
+          <MovieList>
+            {moviesData.map((movie) => (
+              <Movie key={movie.id}>
+                <MainTile
+                  id={movie.id}
+                  poster={movie.poster_path}
+                  title={movie.title}
+                  subtitle={movie.release_date.slice(0, 4)}
+                  tags={movie.genre_ids}
+                  rate={{
+                    score: movie.vote_average,
+                    votes: movie.vote_count,
+                  }}
+                />
+              </Movie>
+            ))}
+          </MovieList>
+        ) : moviesSatus === "loading" ? (
+          <LoaderContainer>
+            <MoonLoader color="#18181B" size={80} />
+          </LoaderContainer>
+        ) : moviesSatus === "error" ? (
+          <ErrorPage />
+        ) : !totalResults ? (
+          <NoResults src={noResultsPoster} />
+        ) : null}
         {moviesSatus === "success" && totalResults && totalPages > 1 ? (
           <Pagination
             currentPage={currentMoviePage}

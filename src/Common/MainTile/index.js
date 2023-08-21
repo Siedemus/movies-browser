@@ -27,11 +27,13 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
             <MainTileYear>{subtitle}</MainTileYear>
             <Tags>
               {genres && tags ? (
-                tags.map((tag) => (
-                  <Tag key={tag}>
-                    {genres.find((genre) => genre.id === tag)?.name}
-                  </Tag>
-                ))
+                tags
+                  .slice(0, 3)
+                  .map((tag) => (
+                    <Tag key={tag}>
+                      {genres.find((genre) => genre.id === tag)?.name}
+                    </Tag>
+                  ))
               ) : (
                 <Tag>No Data</Tag>
               )}

@@ -1,11 +1,11 @@
-import { getAuthorizationOption, people_url, searchPeople } from "../../apiURLs"
+import { getAuthorizationOption, peopleUrl, searchPeople } from "../../apiURLs"
 
 
 
 export const getPopularPeople = async (currentPage, searchQuery) => {
     let apiLink;
     if (searchQuery === "") {
-      apiLink = `${people_url}?page=${currentPage}`;
+      apiLink = `${peopleUrl}?page=${currentPage}`;
     } else {
       apiLink = `${searchPeople}query=${searchQuery}&page=${currentPage}`;
     }

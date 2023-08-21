@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAuthorizationOption, personCredits_url } from "../../apiURLs";
+import { getAuthorizationOption, personCreditsUrl } from "../../apiURLs";
 
 export const usePersonCredits = (id) => {
   const [personCredits, setPersonCredits] = useState(null);
@@ -12,7 +12,7 @@ export const usePersonCredits = (id) => {
 };
 
 export const getPersonCredits = async (id) => {
-  const idPersonCredits = personCredits_url.replace("{person_id}", id);
+  const idPersonCredits = personCreditsUrl.replace("{person_id}", id);
   const response = await fetch(idPersonCredits, getAuthorizationOption);
 
   if (!response.ok) {

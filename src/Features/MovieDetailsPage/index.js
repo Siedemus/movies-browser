@@ -1,4 +1,4 @@
-import { poster_path } from "../../apiURLs";
+import { posterPath } from "../../apiURLs";
 import { useParams } from "react-router-dom";
 import {
   Panel,
@@ -38,7 +38,7 @@ const MovieDetailsPage = () => {
     <>
       <Wrap>
         <PosterPath
-          src={`${poster_path}${movie.backdrop_path}`}
+          src={`${posterPath}${movie.backdrop_path}`}
           alt={`${movie.title}`}
         >
           <Panel>

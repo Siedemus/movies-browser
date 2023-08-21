@@ -13,7 +13,7 @@ import {
 } from "./styled";
 import { PersonDetailTile } from "../../Common/Tile";
 import { fetchPersonCredits, selectPersonCredits } from "./personCreditsSlice";
-import { MainTile } from "../../Common/MainTail";
+import { MainTile } from "../../Common/MainTile";
 
 const PeopleDetailPage = () => {
   const { id } = useParams();

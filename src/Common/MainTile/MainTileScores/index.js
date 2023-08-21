@@ -1,7 +1,7 @@
 import { ReactComponent as Star } from "../../../Assets/Images/shape-star.svg";
 import { AllVotes, Score, Wrap } from "./styled";
 
-export const MainTailScores = ({ data }) => (
+export const MainTileScores = ({ data }) => (
   <Wrap>
     <Star />
     <Score>{data.score.toFixed(1)}</Score>

@@ -10,15 +10,20 @@ export const useReplaceSearchParam = (
   fetchPeopleListLoad
 ) => {
   useEffect(() => {
-    if (query === "") {
-      searchParams.delete("search");
-      searchParams.set("page", "1");
-    } else {
-      searchParams.set("search", query);
-      searchParams.set("page", "1");
+    if (query !== "") {
+      if (query === "") {
+        searchParams.delete("search");
+        searchParams.set("page", "1");
+      } else {
+        searchParams.set("search", query);
+        searchParams.set("page", "1");
+      }
+
+      location.pathname.includes("/movies")
+        ? history.replace(`/movies?${searchParams.toString()}`)
+        : history.replace(`/people?${searchParams.toString()}`);
     }
 
-    history.replace(`${location.pathname}?${searchParams.toString()}`);
     location.pathname.includes("/movies")
       ? dispatch(fetchMovies())
       : dispatch(fetchPeopleListLoad());

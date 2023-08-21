@@ -7,6 +7,10 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 600px) {
+    margin-bottom: 31px;
+  }
 `;
 
 export const Header = styled.h2`

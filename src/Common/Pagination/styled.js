@@ -11,6 +11,10 @@ export const Button = styled.button`
   cursor: pointer;
   border-radius: 5px;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   ${({ next }) =>
     next &&
     css`
@@ -24,6 +28,12 @@ export const Vector = styled(vector)`
     css`
       fill: blue;
       rotate: 180deg;
+    `}
+
+  ${({ gray }) =>
+    gray &&
+    css`
+      fill: gray;
     `}
 
   ${({ mobile }) =>

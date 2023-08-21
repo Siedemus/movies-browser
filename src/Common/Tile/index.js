@@ -16,10 +16,10 @@ import {
   Subtitle,
 } from "./styled";
 import { useDispatch } from "react-redux";
-import { fetchGenres } from "../../Common/MainTail/genresSlice";
+import { fetchGenres } from "../../Common/MainTile/genresSlice";
 import { images } from "../../apiURLs";
 import { useSelector } from "react-redux";
-import { selectGenres } from "../MainTail/genresSlice";
+import { selectGenres } from "../MainTile/genresSlice";
 import noPoster from "../../Assets/Images/noPoster.png";
 
 export const Tile = ({

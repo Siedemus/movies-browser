@@ -14,10 +14,10 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Poster = styled.div.attrs(
-  ({ background }) =>
-    background && {
+  ({ background, noPoster }) =>
+    (noPoster || background) && {
       style: {
-        backgroundImage: `url(${background})`,
+        backgroundImage: ` url(${background}), url(${noPoster})`,
       },
     }
 )`

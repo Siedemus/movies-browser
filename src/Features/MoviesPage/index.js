@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { MainTile } from "../../Common/MainTail";
+import { MainTile } from "../../Common/MainTile";
 import { Container, Header, Movie, MovieList } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -15,7 +15,7 @@ import {
   selectTotalResults,
   selectTotalPages,
 } from "./moviesSlice";
-import { fetchGenres } from "../../Common/MainTail/genresSlice";
+import { fetchGenres } from "../../Common/MainTile/genresSlice";
 import { Pagination } from "../../Common/Pagination";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";

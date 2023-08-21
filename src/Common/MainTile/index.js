@@ -7,13 +7,12 @@ import {
   Tag,
   Tags,
   Content,
-  MainTailBox,
+  MainTileBox,
 } from "./styled";
-import { MainTailScores } from "./MainTailScores/index";
-import { images } from "../../apiURLs";
+import { MainTileScores } from "./MainTileScores/index";
 import { useSelector } from "react-redux";
 import { selectGenres } from "./genresSlice";
-import noPoster from "../../Assets/Images/noPoster.png";
+import { MovieImage } from "./MovieImage";
 
 export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
   const genres = useSelector(selectGenres);
@@ -21,11 +20,8 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
   return (
     <StyledNavLink to={`/movies/${id}`}>
       <MainTileContainer>
-        <Image
-          src={poster ? `${images}${poster}` : noPoster}
-          alt={`${title} poster`}
-        />
-        <MainTailBox>
+        <MovieImage poster={poster} />
+        <MainTileBox>
           <Content>
             <MainTileTitle>{title}</MainTileTitle>
             <MainTileYear>{subtitle}</MainTileYear>
@@ -43,8 +39,8 @@ export const MainTile = ({ id, title, subtitle, tags, rate, poster }) => {
               )}
             </Tags>
           </Content>
-          {rate ? <MainTailScores data={rate} /> : null}
-        </MainTailBox>
+          {rate ? <MainTileScores data={rate} /> : null}
+        </MainTileBox>
       </MainTileContainer>
     </StyledNavLink>
   );

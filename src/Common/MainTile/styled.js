@@ -25,7 +25,7 @@ export const MainTileContainer = styled.div`
   }
 `;
 
-export const MainTailBox = styled.div`
+export const MainTileBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

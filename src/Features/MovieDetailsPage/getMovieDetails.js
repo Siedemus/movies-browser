@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { details_url, getAuthorizationOption } from "../../apiURLs";
+import { detailsUrl, getAuthorizationOption } from "../../apiURLs";
 
 export const useMovieDetails = (id) => {
   const [movie, setMovie] = useState(null);
@@ -11,7 +11,7 @@ export const useMovieDetails = (id) => {
 };
 
 export const getMovieDetails = async (id) => {
-  const response = await fetch(details_url + `${id}`, getAuthorizationOption);
+  const response = await fetch(detailsUrl + `${id}`, getAuthorizationOption);
 
   if (!response.ok) {
     new Error(response.statusText);

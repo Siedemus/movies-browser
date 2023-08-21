@@ -37,7 +37,7 @@ export const Tile = ({
 
   useEffect(() => {
     dispatch(fetchGenres());
-  }, [dispatch]);
+  }, []);
 
   return (
     <TileWrap>
@@ -76,42 +76,6 @@ export const Tile = ({
         <Scores data={rate} />
       </Content>
       <Description>{filmDescription}</Description>
-    </TileWrap>
-  );
-};
-
-export const PersonDetailTile = ({
-  title,
-  dateOfBirth,
-  placeOfBirth,
-  poster,
-  biography,
-}) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchGenres());
-  }, [dispatch]);
-
-  return (
-    <TileWrap>
-      <Image
-        src={poster ? `${images}${poster}` : noPoster}
-        alt={`${title} poster`}
-      />
-      <Content>
-        <Title>{title}</Title>
-
-        <Box>
-          <AdditionInfo>Date of birth:&nbsp;</AdditionInfo>
-          <Info> {dateOfBirth?.replace(/-/g, ".")}</Info>
-        </Box>
-        <Box>
-          <AdditionInfo>Place of birth:&nbsp;</AdditionInfo>
-          <Info> {placeOfBirth}</Info>
-        </Box>
-      </Content>
-      <Description>{biography}</Description>
     </TileWrap>
   );
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { detailPerson_url, getAuthorizationOption } from "../../apiURLs";
+import { detailPersonUrl, getAuthorizationOption } from "../../apiURLs";
 
 export const usePersonDetails = (id) => {
   const [person, setPerson] = useState(null);
@@ -12,7 +12,7 @@ export const usePersonDetails = (id) => {
 };
 
 export const getPersonDetails = async (id) => {
-  const idPerson = detailPerson_url.replace("{person_id}", id);
+  const idPerson = detailPersonUrl.replace("{person_id}", id);
   const response = await fetch(idPerson, getAuthorizationOption);
 
   if (!response.ok) {

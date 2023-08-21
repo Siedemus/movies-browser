@@ -23,7 +23,7 @@ const store = configureStore({
     people: peopleSlice,
     search: searchSlice,
   },
-  
+
   middleware: [sagaMiddleware],
 });
 

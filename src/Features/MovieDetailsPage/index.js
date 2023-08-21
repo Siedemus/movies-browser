@@ -32,7 +32,7 @@ const MovieDetailsPage = () => {
   useEffect(() => {
     dispatch(fetchCredits(id));
     dispatch(fetchDetails(id));
-  }, [dispatch, id]);
+  }, [id]);
 
   return status === "success" ? (
     <>

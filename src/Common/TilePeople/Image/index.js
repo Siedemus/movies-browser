@@ -1,4 +1,3 @@
-
 import { ImageWrapper, Poster, NoPerson } from "./styled";
 import { images } from "../../../apiURLs";
 import noPersonPoster from "../../../Assets/Images/noPersonPoster.png";

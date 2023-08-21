@@ -1,16 +1,7 @@
-import { genres } from "../../apiURLs";
-
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNDdhNDgyZjBmNGQ2YTYzMjMyZWQ5NDYwNDY5ODc5NyIsInN1YiI6IjY0YzJlYzIzNjZhMGQzMDBlN2Q1M2I1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HucdpQMGjiivmlJCKl9m7QEgqOFwrSHhZLxSIj8tEDM",
-  },
-};
+import { genres, getAuthorizationOption } from "../../apiURLs";
 
 export const getGenres = async () => {
-  const response = await fetch(genres, options);
+  const response = await fetch(genres, getAuthorizationOption);
 
   if (!response.ok) {
     throw new Error();

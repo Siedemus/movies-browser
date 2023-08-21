@@ -4,8 +4,8 @@ import { AllVotes, MaxScore, Score, Wrap } from "./styled";
 export const Scores = ({ data }) => (
   <Wrap>
     <Star />
-    <Score>{data.score.toFixed(1)}</Score>
+    <Score>{data?.score.toFixed(1)}</Score>
     <MaxScore>/10</MaxScore>
-    <AllVotes>{data.votes} votes</AllVotes>
+    <AllVotes>{data?.votes} votes</AllVotes>
   </Wrap>
 );

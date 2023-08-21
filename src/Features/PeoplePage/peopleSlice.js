@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  people: [],
+  data: {},
   currentPage: 1,
   status: "loading",
 };
@@ -14,7 +14,7 @@ const peopleSlice = createSlice({
       state.status = "loading";
     },
     fetchPeopleListSuccess: (state, { payload }) => {
-      state.people = payload;
+      state.data = payload;
       state.status = "success";
     },
     fetchPeopleListError: (state) => {
@@ -28,13 +28,13 @@ const peopleSlice = createSlice({
         state.currentPage--;
       }
     },
-    nextPeoplePage: (state) => {
-      if (state.currentPage !== 500) {
+    nextPeoplePage: (state, { payload }) => {
+      if (state.currentPage !== payload) {
         state.currentPage++;
       }
     },
-    lastPeoplePage: (state) => {
-      state.currentPage = 500;
+    lastPeoplePage: (state, { payload }) => {
+      state.currentPage = payload;
     },
     setPeoplePageByQuery: (state, { payload }) => {
       if (isNaN(payload)) {
@@ -61,11 +61,16 @@ export const {
   setPeoplePageByQuery,
 } = peopleSlice.actions;
 
-export const selectPeopleState = (state) => state.people;
+const selectPeopleState = (state) => state.people;
+
 export const selectStatus = (state) => selectPeopleState(state).status;
 
 export const selectPeopleList = (state) =>
-  selectPeopleState(state).people.results;
+  selectPeopleState(state).data.results;
+export const selectTotalPages = (state) =>
+  selectPeopleState(state).data.total_pages;
+export const selectTotalResults = (state) =>
+  selectPeopleState(state).data.total_results;
 
 export const selectCurrentPeoplePage = (state) => state.people.currentPage;
 

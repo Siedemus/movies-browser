@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const TileWrap = styled.article`
   margin: auto;
   max-width: 1368px;
-  margin-left: 40px;
-  margin-right: 40px;
   background: ${({ theme }) => theme.colors.white};
   padding: 40px;
   border-radius: 5px;
@@ -17,8 +15,6 @@ export const TileWrap = styled.article`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     margin: auto;
-    margin-left: 40px;
-    margin-right: 40px;
     padding: 16px;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -53,6 +49,7 @@ export const Title = styled.header`
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 0px;
+    line-height: 130%;
   }
 `;
 
@@ -63,10 +60,12 @@ export const Subtitle = styled.div`
   margin-bottom: 23px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    color: ${({ theme }) => theme.colors.waterloo};
     font-weight: 400;
     font-size: 13px;
     margin-bottom: 5px;
     margin-top: 4px;
+    line-height: 130%;
   }
 `;
 
@@ -79,7 +78,7 @@ export const Box = styled.div`
     max-height: 16px;
     font-weight: 400;
     font-size: 13px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -122,7 +121,7 @@ export const InfoShort = styled.span`
   font-size: 18px;
   color: ${({ theme }) => theme.colors.black};
 
-  @media (min-width: 599px) {
+  @media (min-width: ${({ theme }) => theme.breakpoint.large}) {
     display: none;
   }
 `;

@@ -6,7 +6,8 @@ export const useReplaceSearchParam = (
   history,
   dispatch,
   fetchMovies,
-  searchParams
+  searchParams,
+  fetchPeopleListLoad
 ) => {
   useEffect(() => {
     if (query === "") {
@@ -18,6 +19,8 @@ export const useReplaceSearchParam = (
     }
 
     history.replace(`${location.pathname}?${searchParams.toString()}`);
-    dispatch(fetchMovies());
+    location.pathname.includes("/movies")
+      ? dispatch(fetchMovies())
+      : dispatch(fetchPeopleListLoad());
   }, [query]);
 };

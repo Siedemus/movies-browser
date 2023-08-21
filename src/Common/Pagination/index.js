@@ -7,7 +7,6 @@ import {
   Important,
   ButtonText,
 } from "./styled";
-import { selectTotalPages } from "../../Features/MoviesPage/moviesSlice";
 
 export const Pagination = ({
   currentPage,
@@ -15,9 +14,9 @@ export const Pagination = ({
   previousPage,
   nextPage,
   lastPage,
+  totalPages,
 }) => {
   const dispatch = useDispatch();
-  const totalPages = useSelector(selectTotalPages);
 
   return (
     <Container>

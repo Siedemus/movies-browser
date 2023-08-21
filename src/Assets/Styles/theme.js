@@ -8,6 +8,7 @@ export const theme = {
     button: "#0044CC",
     stormGray: "#74788B",
     waterloo: "#7E839A",
+    blackyblack: "#000",
   },
   breakpoint: {
     desktopMax: "1368px",

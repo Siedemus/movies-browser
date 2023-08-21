@@ -10,6 +10,8 @@ import {
   selectCurrentPeoplePage,
   selectPeopleList,
   selectStatus,
+  selectTotalPages,
+  selectTotalResults,
   setPeoplePageByQuery,
 } from "./peopleSlice";
 import { LoaderContainer } from "../../Common/LoaderContainer/styled";
@@ -21,12 +23,18 @@ import {
   useLocation,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
+import { selectQuery } from "../Navigation/Search/searchSlice";
+import { NoResults } from "../../Common/NoResults/styled";
+import noResultsPoster from "../../Assets/Images/noResults.svg"
 
 const PeoplePage = () => {
   const dispatch = useDispatch();
   const currentPeoplePage = useSelector(selectCurrentPeoplePage);
   const popularPeople = useSelector(selectPeopleList);
   const peopleStatus = useSelector(selectStatus);
+  const totalPages = useSelector(selectTotalPages);
+  const totalResults = useSelector(selectTotalResults);
+  const searchQuery = useSelector(selectQuery);
 
   const location = useLocation();
   const history = useHistory();
@@ -34,44 +42,55 @@ const PeoplePage = () => {
 
   useEffect(() => {
     dispatch(setPeoplePageByQuery(parseInt(query)));
-  }, [query, dispatch]);
+  }, [query]);
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("page", currentPeoplePage);
     dispatch(fetchPeopleListLoad());
-    history.replace(`${location.pathname}?page=${currentPeoplePage}`);
-  }, [currentPeoplePage, dispatch, history, location.pathname]);
+    history.replace(`${location.pathname}?${searchParams}`);
+  }, [currentPeoplePage]);
 
   return (
     <Container>
-      <Header>Popular People</Header>
-      <PeopleList>
-        {peopleStatus === "success" ? (
-          <>
-            {popularPeople.map((people) => (
-              <ItemPeopleList key={people.id}>
-                <PeopleListTile
-                  id={people.id}
-                  poster={people.profile_path}
-                  name={people.name}
-                />
-              </ItemPeopleList>
-            ))}
-            <Pagination
-              currentPage={currentPeoplePage}
-              firstPage={firstPeoplePage}
-              previousPage={previousPeoplePage}
-              nextPage={nextPeoplePage}
-              lastPage={lastPeoplePage}
-            />
-          </>
-        ) : peopleStatus === "loading" ? (
-          <LoaderContainer>
-            <MoonLoader color="#18181B" size={80} />
-          </LoaderContainer>
-        ) : peopleStatus === "error" ? (
-          <ErrorPage />
-        ) : null}
-      </PeopleList>
+      <Header>
+        {searchQuery !== ""
+          ? totalResults
+            ? `Search results for “${searchQuery}” (${totalResults})`
+            : `Sorry, there are no results for “${searchQuery}”`
+          : "Popular Movies"}
+      </Header>
+      {peopleStatus === "success" && totalResults ? (
+        <PeopleList>
+          {popularPeople.map((people) => (
+            <ItemPeopleList key={people.id}>
+              <PeopleListTile
+                id={people.id}
+                poster={people.profile_path}
+                name={people.name}
+              />
+            </ItemPeopleList>
+          ))}
+        </PeopleList>
+      ) : peopleStatus === "loading" ? (
+        <LoaderContainer>
+          <MoonLoader color="#18181B" size={80} />
+        </LoaderContainer>
+      ) : peopleStatus === "error" ? (
+        <ErrorPage />
+      ) : peopleStatus === "success" && !totalResults ? (
+        <NoResults src={noResultsPoster}/>
+      ) : null}
+      {peopleStatus === "success" && totalResults && totalPages > 1 ? (
+        <Pagination
+          currentPage={currentPeoplePage}
+          firstPage={firstPeoplePage}
+          previousPage={previousPeoplePage}
+          nextPage={nextPeoplePage}
+          lastPage={lastPeoplePage}
+          totalPages={totalPages}
+        />
+      ) : null}
     </Container>
   );
 };

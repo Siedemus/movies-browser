@@ -36,21 +36,23 @@ const MovieDetailsPage = () => {
 
   return status === "success" ? (
     <>
-      <Wrap>
-        <PosterPath
-          src={`${poster_path}${movie.backdrop_path}`}
-          alt={`${movie.title}`}
-        >
-          <Panel>
-            <Container>
-              <Header>{movie.original_title}</Header>
-              <ScoresDetails
-                data={{ score: movie.vote_average, votes: movie.vote_count }}
-              />
-            </Container>
-          </Panel>
-        </PosterPath>
-      </Wrap>
+      {movie.backdrop_path ? (
+        <Wrap>
+          <PosterPath
+            src={`${poster_path}${movie.backdrop_path}`}
+            alt={`${movie.title}`}
+          >
+            <Panel>
+              <Container>
+                <Header>{movie.original_title}</Header>
+                <ScoresDetails
+                  data={{ score: movie.vote_average, votes: movie.vote_count }}
+                />
+              </Container>
+            </Panel>
+          </PosterPath>
+        </Wrap>
+      ) : null}
       <TileContainer key={movie.poster_path}>
         <Tile
           id={movie.id}
@@ -63,34 +65,30 @@ const MovieDetailsPage = () => {
           rate={{ score: movie.vote_average, votes: movie.vote_count }}
           filmDescription={movie.overview}
         />
-        <PeopleHeader>Cast</PeopleHeader>
+        <PeopleHeader>Cast ({credits?.cast.length}) </PeopleHeader>
         <PeopleList>
           {credits
-            ? credits.cast
-                .slice(0, 16)
-                .map((person) => (
-                  <PeopleListTile
-                    id={id}
-                    poster={person.profile_path}
-                    name={person.name}
-                    character={person.character}
-                  />
-                ))
+            ? credits?.cast.map((person) => (
+                <PeopleListTile
+                  id={person.id}
+                  poster={person.profile_path}
+                  name={person.name}
+                  character={person.character}
+                />
+              ))
             : null}
         </PeopleList>
-        <PeopleHeader>Crew</PeopleHeader>
+        <PeopleHeader>Crew ({credits?.crew.length})</PeopleHeader>
         <PeopleList>
           {credits
-            ? credits.crew
-                .slice(0, 8)
-                .map((person) => (
-                  <PeopleListTile
-                    id={id}
-                    poster={person.profile_path}
-                    name={person.name}
-                    character={person.job}
-                  />
-                ))
+            ? credits?.crew.map((person) => (
+                <PeopleListTile
+                  id={person.id}
+                  poster={person.profile_path}
+                  name={person.name}
+                  character={person.job}
+                />
+              ))
             : null}
         </PeopleList>
       </TileContainer>

@@ -65,7 +65,9 @@ const MovieDetailsPage = () => {
           rate={{ score: movie.vote_average, votes: movie.vote_count }}
           filmDescription={movie.overview}
         />
-        <PeopleHeader>Cast ({credits?.cast.length}) </PeopleHeader>
+        <PeopleHeader>
+          Cast {credits?.cast.length !== 0 ? `(${credits?.cast.length})` : null}{" "}
+        </PeopleHeader>
         <PeopleList>
           {credits
             ? credits?.cast.map((person) => (
@@ -78,7 +80,9 @@ const MovieDetailsPage = () => {
               ))
             : null}
         </PeopleList>
-        <PeopleHeader>Crew ({credits?.crew.length})</PeopleHeader>
+        <PeopleHeader>
+          Crew {credits?.crew.length !== 0 ? `(${credits?.crew.length})` : null}
+        </PeopleHeader>
         <PeopleList>
           {credits
             ? credits?.crew.map((person) => (

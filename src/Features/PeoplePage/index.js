@@ -58,7 +58,7 @@ const PeoplePage = () => {
           ? totalResults
             ? `Search results for “${searchQuery}” (${totalResults})`
             : `Sorry, there are no results for “${searchQuery}”`
-          : "Popular Movies"}
+          : "Popular people"}
       </Header>
       {peopleStatus === "success" && totalResults ? (
         <PeopleList>

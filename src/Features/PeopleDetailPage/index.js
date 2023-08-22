@@ -39,7 +39,12 @@ const PeopleDetailPage = () => {
           biography={person.biography}
         />
       </PersonDetailWrap>
-      <FilmHeader>Movies - cast ({personCredits?.cast.length})</FilmHeader>
+      <FilmHeader>
+        Movies - cast{" "}
+        {personCredits?.cast.length !== 0
+          ? `(${personCredits?.cast.length})`
+          : null}
+      </FilmHeader>
 
       <FilmList>
         {personCredits
@@ -58,7 +63,12 @@ const PeopleDetailPage = () => {
             ))
           : null}
       </FilmList>
-      <FilmHeader>Movies - crew ({personCredits?.crew.length})</FilmHeader>
+      <FilmHeader>
+        Movies - crew{" "}
+        {personCredits?.crew.length !== 0
+          ? `(${personCredits?.crew.length})`
+          : null}
+      </FilmHeader>
       <FilmList>
         {personCredits
           ? personCredits.crew?.map((combined_credits) => (

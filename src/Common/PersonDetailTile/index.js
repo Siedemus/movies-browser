@@ -22,6 +22,11 @@ export const PersonDetailTile = ({
   biography,
 }) => {
   const dispatch = useDispatch();
+  const formattedDate = new Date(dateOfBirth).toLocaleDateString("pl-PL", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
 
   useEffect(() => {
     dispatch(fetchGenres());
@@ -38,7 +43,7 @@ export const PersonDetailTile = ({
 
         <Box>
           <AdditionInfo>Date of birth:&nbsp;</AdditionInfo>
-          <Info> {dateOfBirth?.replace(/-/g, ".")}</Info>
+          <Info> {formattedDate}</Info>
         </Box>
         <Box>
           <AdditionInfo>Place of birth:&nbsp;</AdditionInfo>

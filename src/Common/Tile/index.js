@@ -34,6 +34,11 @@ export const Tile = ({
 }) => {
   const genres = useSelector(selectGenres);
   const dispatch = useDispatch();
+  const formattedDate = new Date(infoDate).toLocaleDateString("pl-PL", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
 
   useEffect(() => {
     dispatch(fetchGenres());
@@ -60,7 +65,7 @@ export const Tile = ({
         </Box>
         <Box>
           <AdditionInfo>Release date:&nbsp;</AdditionInfo>
-          <Info> {infoDate?.replace(/-/g, ".")}</Info>
+          <Info> {formattedDate}</Info>
         </Box>
         <Tags>
           {genres && tags ? (

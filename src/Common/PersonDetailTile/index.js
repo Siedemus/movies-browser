@@ -9,6 +9,9 @@ import {
   Info,
   TileWrap,
   Title,
+  BoxWrap,
+  AdditionInfoLong,
+  AdditionInfoShort,
 } from "./styled";
 import { useEffect } from "react";
 import noPoster from "../../Assets/Images/noPoster.png";
@@ -40,15 +43,19 @@ export const PersonDetailTile = ({
       />
       <Content>
         <Title>{title}</Title>
-
-        <Box>
-          <AdditionInfo>Date of birth:&nbsp;</AdditionInfo>
-          <Info> {formattedDate}</Info>
-        </Box>
-        <Box>
-          <AdditionInfo>Place of birth:&nbsp;</AdditionInfo>
-          <Info> {placeOfBirth}</Info>
-        </Box>
+        <BoxWrap>
+          <Box>
+            <AdditionInfo>
+              <AdditionInfoLong>Date of birth:&nbsp;</AdditionInfoLong>
+              <AdditionInfoShort>Birth:&nbsp;</AdditionInfoShort>
+            </AdditionInfo>
+            <Info> {formattedDate}</Info>
+          </Box>
+          <Box>
+            <AdditionInfo>Place of birth:&nbsp;</AdditionInfo>
+            <Info> {placeOfBirth}</Info>
+          </Box>
+        </BoxWrap>
       </Content>
       <Description>{biography}</Description>
     </TileWrap>

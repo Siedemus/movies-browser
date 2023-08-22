@@ -58,7 +58,7 @@ const MovieDetailsPage = () => {
           id={movie.id}
           poster={movie.poster_path}
           title={movie.title}
-          subtitle={movie.release_date.slice(0, 4)}
+          subtitle={movie.release_date?.slice(0, 4)}
           infoProduction={movie.production_countries}
           infoDate={movie.release_date}
           tags={movie.genres.map(({ id }) => id)}

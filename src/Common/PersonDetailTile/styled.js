@@ -51,18 +51,15 @@ export const Title = styled.header`
     margin-bottom: 0px;
   }
 `;
+export const BoxWrap = styled.div`
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 export const Box = styled.div`
-  display: flex;
-  justify-content: row;
-  margin-bottom: 3px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
-    max-height: 16px;
-    font-weight: 400;
-    font-size: 13px;
-    margin-bottom: 5px;
-  }
+  margin-bottom: 5px;
 `;
 
 export const AdditionInfo = styled.span`
@@ -70,6 +67,18 @@ export const AdditionInfo = styled.span`
   font-size: 18px;
   color: ${({ theme }) => theme.colors.stormGray};
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
+    font-size: 12px;
+  }
+`;
+
+export const AdditionInfoShort = styled.span`
+  @media (min-width: ${({ theme }) => theme.breakpoint.large}) {
+    display: none;
+  }
+`;
+
+export const AdditionInfoLong = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoint.large}) {
     display: none;
   }

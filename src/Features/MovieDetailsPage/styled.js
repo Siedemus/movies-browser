@@ -26,7 +26,6 @@ export const PosterPath = styled.div`
   min-height: 770px;
   max-width: 1368px;
   margin: auto;
-  filter: brightness(80%);
   display: flex;
   flex-direction: row-reverse;
   align-items: end;

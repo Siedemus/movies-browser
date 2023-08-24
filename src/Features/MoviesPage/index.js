@@ -58,10 +58,14 @@ const MoviesPage = () => {
     <>
       <Container>
         <Header>
-          {searchQuery !== ""
+          {moviesSatus === "success" && searchQuery === ""
+            ? "Popular movies"
+            : moviesSatus === "success" && searchQuery !== ""
             ? totalResults
               ? `Search results for “${searchQuery}” (${totalResults})`
               : `Sorry, there are no results for “${searchQuery}”`
+            : searchQuery !== ""
+            ? `Search results for “${searchQuery}”`
             : "Popular movies"}
         </Header>
         {moviesSatus === "success" && totalResults ? (

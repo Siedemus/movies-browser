@@ -54,10 +54,14 @@ const PeoplePage = () => {
   return (
     <Container>
       <Header>
-        {searchQuery !== ""
+        {peopleStatus === "success" && searchQuery === ""
+          ? "Popular people"
+          : peopleStatus === "success" && searchQuery !== ""
           ? totalResults
             ? `Search results for “${searchQuery}” (${totalResults})`
             : `Sorry, there are no results for “${searchQuery}”`
+          : searchQuery !== ""
+          ? `Search results for “${searchQuery}”`
           : "Popular people"}
       </Header>
       {peopleStatus === "success" && totalResults ? (

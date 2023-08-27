@@ -48,10 +48,11 @@ export const Vector = styled(vector)`
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.waterloo};
   margin: auto 12px;
+  
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mini}) {
     font-size: 10px;
-    margin: auto 6px;
+    margin: auto 2px;
   }
 `;
 

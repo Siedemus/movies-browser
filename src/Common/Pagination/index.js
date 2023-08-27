@@ -18,6 +18,8 @@ export const Pagination = ({
 }) => {
   const dispatch = useDispatch();
 
+  const pagePrefix = totalPages >= 500 ? 500 : totalPages;
+
   return (
     <Container>
       <Button
@@ -44,13 +46,13 @@ export const Pagination = ({
         onClick={() =>
           dispatch(nextPage(totalPages > 500 ? "500" : totalPages))
         }
-        disabled={currentPage === totalPages ? true : false}
+        disabled={currentPage === pagePrefix ? true : false}
       >
         <ButtonText>Next</ButtonText>
         <Vector next={+true} alt="next page" />
       </Button>
       <Button
-        disabled={currentPage === totalPages ? true : false}
+        disabled={currentPage === pagePrefix ? true : false}
         next={+true}
         onClick={() =>
           dispatch(lastPage(totalPages > 500 ? "500" : totalPages))

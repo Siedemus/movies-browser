@@ -1,5 +1,6 @@
 # Movies Browser - Group project 🎥🎬
-![moviebrowserDemo](https://github.com/Siedemus/movies-browser/assets/25402008/d3138e94-8e2f-4f5e-8f12-4ae5a72147ee)
+![movies-browser-film](https://github.com/Siedemus/movies-browser/assets/131148143/2abd5a47-2b12-4ebf-887f-6c0badd1046a)
+
 ## Demo
 [See Movies Browser](https://siedemus.github.io/movies-browser/#/movies?page=1)
 
